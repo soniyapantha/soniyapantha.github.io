@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Sharma — .NET Fullstack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #12141C;
+    --bg-alt: #171A24;
+    --card: #1B1E2A;
+    --line: #2A2E3D;
+    --text: #F1F2F6;
+    --muted: #8B90A3;
+    --accent: #E8B64C;
+    --accent-dim: #8A6F2E;
+  }
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection{ background: var(--accent); color: #12141C; }
+
+  h1,h2,h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display:block; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px){ .wrap { padding: 0 20px; } }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18,20,28,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; height: 64px; }
+  .nav-mark { font-family:'Space Grotesk'; font-weight:700; font-size: 1.05rem; }
+  .nav-mark span { color: var(--accent); }
+  .nav-links { display:flex; gap: 28px; font-size: 0.9rem; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links { display:none; }
+  @media (min-width: 720px){ .nav-links { display:flex; } }
+  .resume-btn {
+    border: 1px solid var(--line); padding: 8px 16px; border-radius: 6px;
+    font-size: 0.85rem; color: var(--text); transition: border-color .2s, color .2s;
+  }
+  .resume-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- HERO ---------- */
+  header.hero { padding: 100px 0 90px; }
+  .hero-grid { display:grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px){ .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow-role { color: var(--accent); font-size: 0.95rem; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.08; margin-bottom: 22px; }
+  .hero p.lede { color: var(--muted); font-size: 1.08rem; max-width: 46ch; margin-bottom: 32px; }
+  .hero-cta { display:flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 13px 22px; border-radius: 6px; font-size: 0.92rem; font-weight: 500;
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn-primary { background: var(--accent); color: #12141C; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* terminal card */
+  .terminal {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .terminal-bar { display:flex; gap:6px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .dot { width:10px; height:10px; border-radius:50%; background: #3a3f52; }
+  .terminal-body { padding: 22px 20px; font-family:'JetBrains Mono', monospace; font-size: 0.82rem; color: #B7BBCB; }
+  .terminal-body .k { color: #7EC8E3; }
+  .terminal-body .s { color: var(--accent); }
+  .terminal-body .c { color: #6B7085; }
+  .terminal-body div { min-height: 1.5em; }
+  .cursor { display:inline-block; width:7px; height:1em; background: var(--accent); vertical-align: -2px; animation: blink 1s step-start infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 84px 0; border-top: 1px solid var(--line); }
+  .section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 44px; gap: 20px; flex-wrap: wrap; }
+  .section-head h2 { font-size: 1.7rem; }
+  .section-head .count { color: var(--muted); font-size: 0.85rem; }
+
+  /* ---------- PROJECTS (row list, not cards) ---------- */
+  .project {
+    display:grid; grid-template-columns: 90px 1fr auto; gap: 24px; align-items: start;
+    padding: 30px 0; border-bottom: 1px solid var(--line);
+    transition: background .2s ease;
+  }
+  .project:first-child { padding-top: 0; }
+  .project:hover { background: linear-gradient(90deg, rgba(232,182,76,0.04), transparent); }
+  .project .idx { font-family:'JetBrains Mono', monospace; color: var(--accent-dim); font-size: 0.85rem; padding-top: 4px; }
+  .project h3 { font-size: 1.25rem; margin-bottom: 8px; }
+  .project p { color: var(--muted); font-size: 0.95rem; max-width: 58ch; margin-bottom: 14px; }
+  .stack { display:flex; flex-wrap:wrap; gap: 8px; }
+  .stack span {
+    font-family:'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted);
+    border: 1px solid var(--line); padding: 4px 9px; border-radius: 4px;
+  }
+  .project-links { display:flex; flex-direction:column; gap: 10px; align-items:flex-end; font-size: 0.85rem; }
+  .project-links a { color: var(--text); border-bottom: 1px solid var(--line); padding-bottom: 2px; white-space:nowrap; }
+  .project-links a:hover { color: var(--accent); border-color: var(--accent); }
+  @media (max-width: 640px){
+    .project { grid-template-columns: 40px 1fr; }
+    .project-links { grid-column: 1 / -1; flex-direction:row; margin-top: 10px; gap: 18px; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  @media (max-width: 720px){ .skills-grid { grid-template-columns: 1fr; } }
+  .skill-group h4 { font-size: 0.8rem; letter-spacing: 0.03em; color: var(--accent); margin-bottom: 16px; font-family:'JetBrains Mono', monospace; font-weight: 500; }
+  .skill-group ul { list-style:none; }
+  .skill-group li {
+    color: var(--muted); font-size: 0.95rem; padding: 8px 0; border-bottom: 1px solid var(--line);
+  }
+  .skill-group li:last-child { border-bottom: none; }
+  .skill-group li b { color: var(--text); font-weight: 500; }
+
+  /* ---------- EXPERIENCE (timeline, genuinely sequential) ---------- */
+  .timeline { position: relative; padding-left: 28px; border-left: 1px solid var(--line); }
+  .tl-item { position: relative; padding-bottom: 44px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content:''; position:absolute; left:-33px; top: 4px; width: 9px; height: 9px;
+    border-radius: 50%; background: var(--accent);
+  }
+  .tl-when { color: var(--muted); font-size: 0.85rem; font-family:'JetBrains Mono', monospace; margin-bottom: 6px; }
+  .tl-item h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .tl-item .org { color: var(--accent); font-size: 0.9rem; margin-bottom: 10px; }
+  .tl-item p { color: var(--muted); font-size: 0.93rem; max-width: 60ch; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items:end; }
+  @media (max-width: 720px){ .contact-inner { grid-template-columns: 1fr; } }
+  .contact h2 { font-size: 2rem; max-width: 16ch; margin-bottom: 16px; }
+  .contact p { color: var(--muted); max-width: 44ch; margin-bottom: 28px; }
+  .contact-list { display:flex; flex-direction:column; gap: 14px; }
+  .contact-list a { display:flex; justify-content:space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; font-size: 0.95rem; }
+  .contact-list a span:last-child { color: var(--muted); }
+  .contact-list a:hover span:first-child { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; }
+  footer .wrap { display:flex; justify-content:space-between; color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; gap: 10px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">AS<span>.</span>dev</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#" class="resume-btn">Resume ↓</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-role mono">Mid-Level .NET Developer</div>
+      <h1>Alex Sharma builds fast, reliable products end to end.</h1>
+      <p class="lede">Two years building production APIs and web apps with ASP.NET Core, C#, and SQL Server — with a full-stack academic background spanning PHP, Python, and React.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">See my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="terminal-body">
+        <div><span class="c">// developer.cs</span></div>
+        <div>&nbsp;</div>
+        <div><span class="k">public class</span> Developer</div>
+        <div>{</div>
+        <div>&nbsp;&nbsp;<span class="k">string</span> Name = <span class="s">"Alex Sharma"</span>;</div>
+        <div>&nbsp;&nbsp;<span class="k">int</span> YearsExp = <span class="s">2</span>;</div>
+        <div>&nbsp;&nbsp;<span class="k">string[]</span> Stack = {</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"C#"</span>, <span class="s">"ASP.NET Core"</span>,</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"React"</span>, <span class="s">"SQL Server"</span></div>
+        <div>&nbsp;&nbsp;};</div>
+        <div>}<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <div class="count mono">03 projects</div>
+    </div>
+
+    <div class="project">
+      <div class="idx">01</div>
+      <div>
+        <h3>Online Thrift Book Store</h3>
+        <p>A full-stack e-commerce platform for buying and selling second-hand books, with user registration, product listings, cart, and order management. Designed the MySQL schema for users, listings, and transactions, and implemented server-side validation to keep bad data out.</p>
+        <div class="stack"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo →</a>
+        <a href="#">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="idx">02</div>
+      <div>
+        <h3>Priority-Based Task Scheduler</h3>
+        <p>An application implementing priority-based CPU task scheduling logic — users add tasks with priority levels and the app visualizes execution order. Built to translate a core OS scheduling algorithm into a working, testable .NET application.</p>
+        <div class="stack"><span>C#</span><span>.NET</span><span>Windows Forms / ASP.NET</span></div>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo →</a>
+        <a href="#">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="idx">03</div>
+      <div>
+        <h3>Student Performance Prediction System</h3>
+        <p>A machine learning-powered web app that predicts student academic performance from historical data, served through a Flask backend. Handled data preprocessing, model integration, and the route structure connecting the ML layer to the frontend.</p>
+        <div class="stack"><span>Python</span><span>Flask</span><span>scikit-learn</span><span>HTML/CSS</span></div>
+      </div>
+      <div class="project-links">
+        <a href="#">Live demo →</a>
+        <a href="#">GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>PRIMARY STACK</h4>
+        <ul>
+          <li><b>C# / .NET</b> — ASP.NET Core, Web API, MVC</li>
+          <li><b>Entity Framework Core</b> — code-first, migrations</li>
+          <li><b>SQL Server / MySQL</b> — schema design, queries</li>
+          <li><b>REST APIs</b> — design and integration</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>ALSO WORKED WITH</h4>
+        <ul>
+          <li><b>PHP</b> — from academic full-stack project</li>
+          <li><b>Python / Flask</b> — ML-integrated web app</li>
+          <li><b>React / JavaScript</b></li>
+          <li><b>HTML / CSS</b> — responsive layouts</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>TOOLING & PRACTICES</h4>
+        <ul>
+          <li><b>Git / GitHub</b> — branching, PR workflows</li>
+          <li><b>Mentoring</b> — regularly guide interns/junior devs</li>
+          <li><b>Azure</b> — App Service, basic CI/CD</li>
+          <li><b>Unit testing</b> — xUnit basics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">Date — Present</div>
+        <h3>Mid-Level .NET Developer</h3>
+        <div class="org">Company Name</div>
+        <p>Building and maintaining ASP.NET Core services for [product/team], and regularly mentoring interns and junior developers on code quality, debugging, and .NET fundamentals. Add 1-2 lines on a feature you shipped or a process you improved.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Date — Date</div>
+        <h3>.NET Developer</h3>
+        <div class="org">Company Name</div>
+        <p>Add your earlier role here if different from your current one — otherwise remove this entry and keep just your current role.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Year</div>
+        <h3>BCA — Bachelor of Computer Applications</h3>
+        <div class="org">University Name</div>
+        <p>Coursework spanning web development, databases, and OS fundamentals; built full-stack projects in PHP, .NET, and Python/Flask across final semesters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Writing</h2>
+    </div>
+    <div class="timeline" style="border-left: 1px solid var(--line);">
+      <div class="tl-item">
+        <div class="tl-when">Coming soon</div>
+        <h3>Notes on .NET, debugging, and things I've learned on the job</h3>
+        <p>Working on my first posts — swap this block for real links once they're published on Medium, Dev.to, or Hashnode.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-inner">
+    <div class="contact">
+      <h2>Let's build something reliable together.</h2>
+      <p>Open to fullstack roles and freelance work. Usually replies within a day.</p>
+    </div>
+    <div class="contact-list">
+      <a href="mailto:alex.sharma@email.com"><span>Email</span><span>alex.sharma@email.com</span></a>
+      <a href="#"><span>GitHub</span><span>github.com/alexsharma</span></a>
+      <a href="#"><span>LinkedIn</span><span>linkedin.com/in/alexsharma</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Alex Sharma — built with ASP.NET Core in spirit, HTML/CSS in practice.</div>
+    <div>© 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
