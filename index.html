@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Apply the saved / system theme before first paint to avoid a flash -->
+
 <script>
 (function () {
   try {
@@ -40,21 +40,19 @@
 </script>
 
 <style>
-/* =========================================================
-   Tokens
-   ========================================================= */
+
 :root {
   --bg: #F5F4FA;
   --surface: #FFFFFF;
   --ink: #17133A;
   --muted: #5A5680;
   --line: #DEDBEE;
-  --accent: #512BD4;          /* the .NET purple */
+  --accent: #512BD4;          
   --on-accent: #FFFFFF;
   --accent-soft: #ECE8FC;
   --ok: #0F7A4A;
 
-  /* code / API panel (dark in both themes) */
+ 
   --code-bg: #1A1443;
   --code-ink: #E6E2FF;
   --code-dim: #9A94CC;
@@ -83,9 +81,7 @@
   color-scheme: dark;
 }
 
-/* =========================================================
-   Base
-   ========================================================= */
+
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
@@ -118,13 +114,11 @@ figure { margin: 0; }
 }
 .skip:focus { left: 8px; }
 
-/* Reading progress */
+
 .progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; }
 .progress i { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
 
-/* =========================================================
-   Buttons
-   ========================================================= */
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 13px 22px; border-radius: 999px; border: 1.5px solid transparent;
@@ -148,9 +142,7 @@ figure { margin: 0; }
 :root[data-theme="dark"] .i-sun { display: block; }
 :root[data-theme="dark"] .i-moon { display: none; }
 
-/* =========================================================
-   Navigation
-   ========================================================= */
+
 .nav {
   position: sticky; top: 0; z-index: 60;
   background: var(--bg);
@@ -187,9 +179,7 @@ figure { margin: 0; }
 }
 @media (max-width: 420px) { .resume-link { display: none; } }
 
-/* =========================================================
-   Hero
-   ========================================================= */
+
 .hero { padding: clamp(48px, 8vw, 96px) 0 clamp(56px, 8vw, 96px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); margin-bottom: 22px; text-wrap: balance; }
@@ -314,7 +304,7 @@ figure { margin: 0; }
 .g-blk small { color: var(--muted); font-size: .74rem; }
 .sched-out { color: var(--muted); font-size: .93rem; margin-top: 12px; min-height: 1.5em; }
 
-/* GitHub (live) */
+
 .gh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; margin-bottom: 36px; }
 .stat b { display: block; font: 700 clamp(2rem, 4vw, 2.8rem)/1 'Bricolage Grotesque', sans-serif; letter-spacing: -.02em; margin-bottom: 6px; }
 .stat span { color: var(--muted); font-size: .92rem; }
@@ -358,7 +348,7 @@ figure { margin: 0; }
 .tl-org { color: var(--accent); font-weight: 600; margin: 4px 0 12px; }
 .tl ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 62ch; display: grid; gap: 6px; }
 
-/* Writing */
+
 .posts { display: grid; gap: 0; max-width: 780px; }
 .post { display: block; padding: 22px 0; border-top: 1px solid var(--line); text-decoration: none; }
 .post:last-child { border-bottom: 1px solid var(--line); }
@@ -367,7 +357,7 @@ figure { margin: 0; }
 .post p { color: var(--muted); max-width: 62ch; }
 .post small { display: block; margin-top: 8px; color: var(--muted); }
 
-/* Contact */
+
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 16px; text-wrap: balance; }
 .contact .lede { margin-bottom: 0; }
@@ -404,7 +394,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-/* Command menu */
+
 .palette {
   width: min(580px, calc(100% - 32px)); max-height: min(520px, 78vh); margin: 12vh auto auto;
   padding: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink);
@@ -424,9 +414,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .pal-empty { padding: 18px 12px; color: var(--muted); }
 .pal-foot { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 
-/* =========================================================
-   Responsive
-   ========================================================= */
+
 @media (max-width: 900px) {
   .hero-grid, .contact-grid { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr; }
@@ -723,7 +711,7 @@ def predict():
 
   experience: [
     {
-      period: 'Month YYYY \u2014 Present',   
+      period: 'Nov 2024 — Present',   
       role: 'Mid-Level .NET Developer',
       org: 'Smartsoft Network',                   
       points: [
@@ -734,9 +722,9 @@ def predict():
     }
   ],
   education: {
-    period: 'YYYY',                                        
+    period: '2021 — 2026',                                        
     role: 'Bachelor of Computer Applications (BCA)',
-    org: 'University Name',                               
+    org: 'Tribhuvan University',                               
     points: [
       'Coursework in web development, databases, and operating-system fundamentals.',
       'Built full-stack projects in PHP, .NET, and Python/Flask during the final semesters.'
