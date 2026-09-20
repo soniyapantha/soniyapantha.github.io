@@ -9,9 +9,9 @@
 <meta name="theme-color" content="#0F0C24" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Soniya Pantha — .NET Fullstack Developer">
-<meta property="og:description" content="ASP.NET Core, C#, SQL Server and React. Selected projects, skills and experience.">
+<meta property="og:description" content="ASP.NET Core, C#, SQL Server and React. Selected projects, live GitHub activity, skills and experience.">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23512BD4%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial,sans-serif%27 font-size=%2728%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23512BD4%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial,sans-serif%27 font-size=%2728%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3ESP%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
   "@type": "Person",
   "name": "Soniya Pantha",
   "jobTitle": "Mid-Level .NET Developer",
-  "email": "mailto:sharmaunisha666@gmail.com",
+  "email": "mailto:your.email@example.com",
   "sameAs": ["https://github.com/soniyapantha", "https://www.linkedin.com/in/soniyapantha"]
 }
 </script>
@@ -171,9 +171,12 @@ figure { margin: 0; }
 .nav-links a[aria-current="true"] { color: var(--ink); background: var(--accent-soft); }
 .nav-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 .menu-btn { display: none; }
+.pal-btn { gap: 10px; }
+.pal-btn kbd { font: 500 .72rem/1 'JetBrains Mono', ui-monospace, monospace; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; }
 
 @media (max-width: 760px) {
   .menu-btn { display: grid; }
+  .pal-btn { display: none; }
   .nav-links { display: none; margin: 0; }
   .nav[data-open="true"] .nav-links {
     display: flex; flex-direction: column; gap: 2px;
@@ -212,7 +215,7 @@ figure { margin: 0; }
 .api-hint { color: var(--code-dim); font-size: .74rem; }
 .ep {
   display: flex; align-items: center; gap: 12px; width: 100%;
-  padding: 12px 18px; background: transparent; border: 0; border-left: 3px solid transparent;
+  padding: 10px 18px; background: transparent; border: 0; border-left: 3px solid transparent;
   color: var(--code-ink); font: inherit; text-align: left; cursor: pointer;
   transition: background .15s ease;
 }
@@ -221,10 +224,19 @@ figure { margin: 0; }
 .ep[aria-pressed="true"] { background: rgba(187,168,255,.10); border-left-color: var(--code-key); }
 .method { font-size: .66rem; font-weight: 500; letter-spacing: .04em; padding: 3px 8px; border-radius: 5px; background: #8DB8FF; color: #0A0820; }
 .ep-desc { margin-left: auto; color: var(--code-dim); font-size: .72rem; }
+.ep-form { display: flex; align-items: center; gap: 10px; padding: 10px 18px; border-top: 1px solid var(--code-line); }
+.ep-input {
+  flex: 1; min-width: 0; font: inherit; color: var(--code-ink);
+  background: rgba(255,255,255,.06); border: 1px solid var(--code-line); border-radius: 8px; padding: 8px 10px;
+}
+.ep-input::placeholder { color: var(--code-dim); }
+.ep-send { font: inherit; font-weight: 500; background: var(--code-key); color: #0A0820; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.ep-send:hover { filter: brightness(1.1); }
 .res { padding: 14px 18px 18px; border-top: 1px solid var(--code-line); }
 .res-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: .72rem; color: var(--code-dim); margin-bottom: 10px; min-height: 1.2em; }
 .res-meta .ok { color: #6FE3AE; font-weight: 500; }
-.res pre { margin: 0; min-height: calc(8 * 1.7em); line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
+.res-meta .err { color: var(--code-lit); font-weight: 500; }
+.res pre { margin: 0; min-height: calc(8 * 1.7em); white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
 .j-k { color: var(--code-key); }
 .j-s { color: var(--code-str); }
 .j-n { color: var(--code-num); }
@@ -266,13 +278,63 @@ figure { margin: 0; }
 .detail-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .code { margin-top: 26px; border-radius: 12px; background: var(--code-bg); border: 1px solid var(--code-line); overflow: hidden; color: var(--code-ink); font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
 .code-head { display: flex; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--code-line); color: var(--code-dim); font-size: .74rem; }
-.code pre { margin: 0; padding: 16px; overflow-x: auto; line-height: 1.7; font: inherit; line-height: 1.7; }
+.code pre { margin: 0; padding: 16px; overflow-x: auto; font: inherit; line-height: 1.7; }
 .c-c { color: var(--code-dim); font-style: italic; }
 .c-k { color: var(--code-key); }
 .c-s { color: var(--code-str); }
 .c-n { color: var(--code-num); }
 @keyframes swap { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .swap { animation: swap .28s ease-out; }
+
+/* Interactive scheduler demo */
+.sched { margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 2.4vw, 24px); background: var(--bg); }
+.sched h4 { margin-bottom: 4px; }
+.sched-intro { color: var(--muted); font-size: .93rem; margin-bottom: 16px; max-width: 62ch; }
+.sched-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 14px; }
+.sched-form label { display: grid; gap: 4px; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.sched-form .grow { flex: 1 1 180px; }
+.sched-form input, .sched-form select {
+  font: 400 .95rem 'Instrument Sans', system-ui, sans-serif; color: var(--ink);
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 8px; padding: 9px 10px; width: 100%;
+}
+.sched-form input:focus, .sched-form select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent); }
+.sched-tasks { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sched-tasks li { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 6px 5px 12px; font-size: .88rem; }
+.sched-tasks li.none { padding: 5px 12px; color: var(--muted); }
+.sched-tasks em { font-style: normal; color: var(--muted); font-size: .8rem; }
+.sched-tasks button { width: 22px; height: 22px; border-radius: 50%; border: 0; background: var(--accent-soft); color: var(--ink); cursor: pointer; line-height: 1; font-size: 1rem; }
+.sched-tasks button:hover { background: var(--accent); color: var(--on-accent); }
+.sched-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.gantt { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; overflow-x: auto; }
+.g-blk {
+  flex: var(--w) 1 0px; min-width: 96px; display: grid; gap: 2px; padding: 9px 10px; border-radius: 8px;
+  background: var(--accent-soft); border-left: 4px solid var(--accent); overflow: hidden;
+  opacity: 0; transform: translateY(6px); transition: opacity .3s ease, transform .3s ease;
+}
+.g-blk.on { opacity: 1; transform: none; }
+.g-blk b { font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.g-blk small { color: var(--muted); font-size: .74rem; }
+.sched-out { color: var(--muted); font-size: .93rem; margin-top: 12px; min-height: 1.5em; }
+
+/* GitHub (live) */
+.gh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; margin-bottom: 36px; }
+.stat b { display: block; font: 700 clamp(2rem, 4vw, 2.8rem)/1 'Bricolage Grotesque', sans-serif; letter-spacing: -.02em; margin-bottom: 6px; }
+.stat span { color: var(--muted); font-size: .92rem; }
+.lang-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--line); margin-bottom: 14px; }
+.lang-bar i { display: block; height: 100%; width: 0; transition: width .9s cubic-bezier(.2,.7,.2,1); }
+.lang-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: .88rem; margin-bottom: 40px; }
+.lang-legend span, .lang { display: inline-flex; align-items: center; gap: 8px; }
+.lang-legend i, .lang i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.repo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.repo:last-child { border-bottom: 1px solid var(--line); }
+.repo h3 { font-size: 1.15rem; margin-bottom: 4px; overflow-wrap: anywhere; }
+.repo:hover h3 { color: var(--accent); }
+.repo p { color: var(--muted); font-size: .95rem; max-width: 64ch; }
+.repo-meta { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: .86rem; white-space: nowrap; }
+@media (max-width: 640px) {
+  .repo { grid-template-columns: 1fr; }
+  .repo-meta { flex-wrap: wrap; white-space: normal; gap: 6px 16px; }
+}
 
 /* Skills */
 .grp { font: 600 1rem/1.3 'Instrument Sans', sans-serif; letter-spacing: 0; color: var(--muted); margin-bottom: 14px; }
@@ -344,6 +406,26 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* Command menu */
+.palette {
+  width: min(580px, calc(100% - 32px)); max-height: min(520px, 78vh); margin: 12vh auto auto;
+  padding: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.palette[open] { display: flex; flex-direction: column; }
+.palette::backdrop { background: rgba(15,12,36,.55); backdrop-filter: blur(3px); }
+#pal-input {
+  width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink);
+  font: 400 1.05rem 'Instrument Sans', system-ui, sans-serif; padding: 18px 20px; outline: none;
+}
+#pal-input:focus-visible { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
+#pal-list { list-style: none; margin: 0; padding: 8px; overflow-y: auto; }
+.pal-group { padding: 10px 12px 4px; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.pal-item { padding: 10px 12px; border-radius: 8px; cursor: pointer; }
+.pal-item[aria-selected="true"] { background: var(--accent-soft); }
+.pal-empty { padding: 18px 12px; color: var(--muted); }
+.pal-foot { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
+
 /* =========================================================
    Responsive
    ========================================================= */
@@ -369,18 +451,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <nav class="nav" aria-label="Primary">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Alex Sharma, back to top">
-      <span class="brand-mark" aria-hidden="true">AS</span>
+    <a class="brand" href="#top" aria-label="Soniya Pantha, back to top">
+      <span class="brand-mark" aria-hidden="true">SP</span>
       <span>Soniya Pantha</span>
     </a>
     <div class="nav-links" id="nav-links">
       <a href="#work">Work</a>
+      <a href="#github" id="nav-github" hidden>GitHub</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#writing" id="nav-writing" hidden>Writing</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
+      <button class="btn btn-line btn-sm pal-btn" id="pal-btn" type="button" aria-label="Open command menu">Jump to <kbd id="pal-kbd">Ctrl K</kbd></button>
       <a class="btn btn-line btn-sm resume-link" id="resume-link" href="resume.pdf" download hidden>Resume</a>
       <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
         <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -408,15 +492,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p class="availability"><i aria-hidden="true"></i>Open to fullstack roles and freelance work</p>
       </div>
 
-      <div class="api" role="group" aria-label="Interactive API explorer about Alex Sharma">
+      <div class="api" role="group" aria-label="Interactive API explorer about Soniya Pantha">
         <div class="api-head">
           <div class="api-top">
             <div class="api-title">Soniya.Portfolio.Api <span class="api-ver">v1</span></div>
             <div class="api-server">https://localhost:7001</div>
           </div>
-          <p class="api-hint">Select an endpoint to send a request.</p>
+          <p class="api-hint">Select an endpoint, or type your own path.</p>
         </div>
         <div id="ep-list"></div>
+        <form class="ep-form" id="ep-form" autocomplete="off">
+          <span class="method">GET</span>
+          <input class="ep-input" id="ep-input" type="text" maxlength="60" spellcheck="false" placeholder="/api/hobbies" aria-label="Request path">
+          <button class="ep-send" type="submit">Send</button>
+        </form>
         <div class="res">
           <div class="res-meta" id="res-meta"></div>
           <pre id="res-body" aria-live="polite"></pre>
@@ -437,6 +526,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <article class="detail" id="project-panel" role="tabpanel" tabindex="0"></article>
       </div>
       <noscript><p class="noscript">JavaScript is turned off, so projects can't load here. See my work on GitHub instead.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ================= GITHUB (appears once live data loads) ================= -->
+  <section class="section" id="github" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Live from GitHub</h2>
+        <p>Pulled from my public profile when you opened this page.</p>
+      </div>
+      <div class="gh-stats" id="gh-stats"></div>
+      <div class="lang-bar" id="lang-bar" role="img" aria-label="Languages used across my repositories"></div>
+      <div class="lang-legend" id="lang-legend"></div>
+      <div id="gh-repos"></div>
     </div>
   </section>
 
@@ -505,21 +608,27 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<dialog class="palette" id="palette" aria-label="Command menu">
+  <input id="pal-input" type="text" role="combobox" aria-expanded="true" aria-controls="pal-list" aria-autocomplete="list" placeholder="Search sections, projects, and actions" autocomplete="off" spellcheck="false">
+  <ul id="pal-list" role="listbox" aria-label="Commands"></ul>
+  <p class="pal-foot">Use the arrow keys to move, Enter to select, Esc to close.</p>
+</dialog>
+
 <script>
 /* =========================================================
    1. YOUR CONTENT  —  edit this block, nothing else.
    Everything on the page below the hero text is built from it.
    ========================================================= */
 const DATA = {
-  name: 'Alex Sharma',
+  name: 'Soniya Pantha',
   role: 'Mid-Level .NET Developer',
   years: 2,
   headlineStack: ['C#', 'ASP.NET Core', 'SQL Server', 'React'],
   mentoring: 'interns and junior developers',
 
-  email: 'alex.sharma@email.com',                    // EDIT
-  github: 'https://github.com/alexsharma',           // EDIT
-  linkedin: 'https://www.linkedin.com/in/alexsharma',// EDIT
+  email: 'your.email@example.com',                     // EDIT
+  github: 'https://github.com/soniyapantha',           // the live GitHub section reads this username
+  linkedin: 'https://www.linkedin.com/in/soniyapantha',// EDIT
   resume: 'resume.pdf',    // put resume.pdf next to index.html, or set to '' to hide the button
 
   projects: [
@@ -559,6 +668,7 @@ const DATA = {
       stack: ['C#', '.NET'],   // EDIT: add your UI layer, e.g. 'Windows Forms' or 'ASP.NET Core'
       demo: '',
       repo: '',
+      widget: 'scheduler',     // shows the playable demo below the project details
       snippet: {
         file: 'Scheduler.cs', lang: 'cs',
         code: `// Highest priority first; earlier arrival breaks ties
@@ -655,18 +765,25 @@ def predict():
   const esc = s => escText(s).replace(/"/g, '&quot;');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pretty = url => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  const jump = id => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); };
+  function whenVisible(el, fn) {
+    if (!('IntersectionObserver' in window)) return fn();
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); fn(); } }, { threshold: .25 });
+    io.observe(el);
+  }
 
   /* ---------- Theme ---------- */
   const root = document.documentElement;
   const themeBtn = $('#theme-btn');
   const syncThemeLabel = () => themeBtn.setAttribute('aria-label',
     root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-  themeBtn.addEventListener('click', () => {
+  function toggleTheme() {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
     syncThemeLabel();
-  });
+  }
+  themeBtn.addEventListener('click', toggleTheme);
   syncThemeLabel();
 
   /* ---------- Mobile menu ---------- */
@@ -704,9 +821,10 @@ def predict():
       t.remove(); return ok;
     }
   }
-  $('#copy-email').addEventListener('click', async () => {
+  async function copyEmail() {
     showToast(await copyText(D.email) ? 'Email address copied' : 'Copy failed. Select the address and copy it manually.');
-  });
+  }
+  $('#copy-email').addEventListener('click', copyEmail);
 
   /* ---------- Contact form (opens the visitor's email app) ---------- */
   const form = $('#contact-form'), formMsg = $('#form-msg');
@@ -735,6 +853,80 @@ def predict():
   const highlight = (code, lang) => escText(code).replace(RULES[lang], (m, c, s, k) =>
     `<span class="${c ? 'c-c' : s ? 'c-s' : k ? 'c-k' : 'c-n'}">${m}</span>`);
 
+  /* ---------- Live GitHub data ---------- */
+  const gh = { user: ((D.github || '').match(/github\.com\/([^/?#]+)/) || [])[1], promise: null, shown: false };
+  function loadGitHub() {
+    if (gh.promise) return gh.promise;
+    gh.promise = (async () => {
+      if (!gh.user) throw new Error('No GitHub username');
+      const key = 'gh:' + gh.user;
+      try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < 6e5) return c.v; } catch (e) {}
+      const get = url => fetch(url).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+      const [u, repos] = await Promise.all([
+        get(`https://api.github.com/users/${gh.user}`),
+        get(`https://api.github.com/users/${gh.user}/repos?per_page=100&sort=pushed`)
+      ]);
+      const v = {
+        user: { login: u.login, repos: u.public_repos, followers: u.followers },
+        repos: repos.filter(r => !r.fork).map(r => ({
+          name: r.name, url: r.html_url, desc: r.description, lang: r.language, stars: r.stargazers_count, pushed: r.pushed_at }))
+      };
+      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
+      return v;
+    })();
+    return gh.promise;
+  }
+  const langStats = repos => {
+    const m = {};
+    repos.forEach(r => { if (r.lang) m[r.lang] = (m[r.lang] || 0) + 1; });
+    const total = Object.values(m).reduce((a, b) => a + b, 0) || 1;
+    return Object.entries(m).sort((a, b) => b[1] - a[1]).map(([name, n]) => ({ name, n, pct: Math.round(n / total * 100) }));
+  };
+  const LANG_COLORS = { 'C#': '#8B6CF0', JavaScript: '#E8B923', TypeScript: '#3B82F6', HTML: '#E5533D', CSS: '#2DB5C4',
+    Python: '#3B82C4', PHP: '#7A86B8', Java: '#C77B30', 'Jupyter Notebook': '#F37626', 'C++': '#E0559D', C: '#6E7681', Shell: '#4EAA25' };
+  const FALLBACK = ['#D96C9D', '#5FB49C', '#B08968', '#7C8DB5', '#C9A227'];
+  const langColor = (name, i) => LANG_COLORS[name] || FALLBACK[i % FALLBACK.length];
+  const ago = iso => {
+    const d = (Date.now() - new Date(iso)) / 864e5;
+    if (d < 1) return 'today'; if (d < 2) return 'yesterday';
+    if (d < 30) return Math.floor(d) + ' days ago';
+    if (d < 365) return Math.floor(d / 30) + ' months ago';
+    return Math.floor(d / 365) + ' years ago';
+  };
+  function countUp(el, to) {
+    if (reduceMotion || to < 2) { el.textContent = to; return; }
+    const t0 = performance.now();
+    const step = now => { const p = Math.min(1, (now - t0) / 900); el.textContent = Math.round(to * (1 - (1 - p) ** 3)); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  function renderGitHub(v) {
+    const list = v.repos.filter(r => r.name.toLowerCase() !== (gh.user + '.github.io').toLowerCase());
+    if (!v.repos.length) return;
+    const langs = langStats(v.repos);
+    const stars = v.repos.reduce((s, r) => s + r.stars, 0);
+    const stats = [['Public repositories', v.user.repos], ['Followers', v.user.followers], ['Stars earned', stars], ['Languages used', langs.length]];
+    $('#gh-stats').innerHTML = stats.map(([label, n]) => `<div class="stat"><b data-n="${n}">${n}</b><span>${esc(label)}</span></div>`).join('');
+    $('#lang-bar').innerHTML = langs.map((l, i) => `<i style="background:${langColor(l.name, i)}" data-w="${l.pct}" title="${esc(l.name)} ${l.pct}%"></i>`).join('');
+    $('#lang-legend').innerHTML = langs.slice(0, 6).map((l, i) => `<span><i style="background:${langColor(l.name, i)}"></i>${esc(l.name)} ${l.pct}%</span>`).join('');
+    $('#gh-repos').innerHTML = list.slice(0, 6).map(r => {
+      const li = langs.findIndex(l => l.name === r.lang);
+      return `<a class="repo" href="${esc(r.url)}" target="_blank" rel="noopener">
+        <div><h3>${esc(r.name)}</h3><p>${esc(r.desc || 'No description yet.')}</p></div>
+        <div class="repo-meta">
+          ${r.lang ? `<span class="lang"><i style="background:${langColor(r.lang, li < 0 ? 0 : li)}"></i>${esc(r.lang)}</span>` : ''}
+          ${r.stars ? `<span>${r.stars} ${r.stars === 1 ? 'star' : 'stars'}</span>` : ''}
+          <span>Updated ${esc(ago(r.pushed))}</span>
+        </div></a>`;
+    }).join('');
+    $('#github').hidden = false; $('#nav-github').hidden = false; gh.shown = true;
+    whenVisible($('#github'), () => {
+      $$('#gh-stats b').forEach(b => countUp(b, +b.dataset.n));
+      requestAnimationFrame(() => $$('#lang-bar i').forEach(i => { i.style.width = i.dataset.w + '%'; }));
+    });
+    if (reduceMotion) $$('#lang-bar i').forEach(i => { i.style.width = i.dataset.w + '%'; });
+  }
+  loadGitHub().then(renderGitHub).catch(() => { /* section simply stays hidden */ });
+
   /* ---------- Hero: interactive API explorer ---------- */
   const inl = v => Array.isArray(v) ? '[' + v.map(inl).join(', ') + ']'
     : v && typeof v === 'object' ? '{ ' + Object.entries(v).map(([k, x]) => JSON.stringify(k) + ': ' + inl(x)).join(', ') + ' }'
@@ -754,18 +946,29 @@ def predict():
     (m, s, colon, lit, num) => s ? (colon ? `<span class="j-k">${s}</span>${colon}` : `<span class="j-s">${s}</span>`)
       : lit ? `<span class="j-l">${lit}</span>` : `<span class="j-n">${num}</span>`);
 
+  const STATUS = { 200: 'OK', 404: 'Not Found', 418: "I'm a Teapot", 503: 'Service Unavailable' };
   const ENDPOINTS = [
-    { path: '/api/developer', desc: 'Who I am', build: () => ({
+    { path: '/api/developer', desc: 'Who I am', build: async () => ({
         name: D.name, role: D.role, yearsExperience: D.years, stack: D.headlineStack, mentors: D.mentoring }) },
-    { path: '/api/projects', desc: 'What I built', build: () => ({
+    { path: '/api/projects', desc: 'What I built', build: async () => ({
         total: D.projects.length, items: D.projects.map(p => p.title) }) },
-    { path: '/api/skills', desc: 'What I use', build: () =>
+    { path: '/api/skills', desc: 'What I use', build: async () =>
         Object.fromEntries(D.skills.map(g => [g.key, g.items.map(i => i.short || i.name)])) },
-    { path: '/api/availability', desc: 'Work with me', build: () => ({
+    { path: '/api/github', desc: 'Live stats', build: async () => {
+        const v = await loadGitHub();
+        return { user: v.user.login, publicRepos: v.user.repos, followers: v.user.followers,
+          topLanguages: langStats(v.repos).slice(0, 3).map(l => l.name) };
+      } },
+    { path: '/api/availability', desc: 'Work with me', build: async () => ({
         open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', email: D.email }) }
   ];
+  const normPath = raw => {
+    let p = raw.trim().toLowerCase().replace(/^get\s+/, '');
+    if (!p.startsWith('/')) p = '/' + p;
+    return p.length > 1 ? p.replace(/\/+$/, '') : p;
+  };
 
-  const epList = $('#ep-list'), resBody = $('#res-body'), resMeta = $('#res-meta');
+  const epList = $('#ep-list'), resBody = $('#res-body'), resMeta = $('#res-meta'), epInput = $('#ep-input');
   epList.innerHTML = ENDPOINTS.map((ep, i) => `
     <button class="ep" type="button" data-i="${i}" aria-pressed="false">
       <span class="method">GET</span><span>${esc(ep.path)}</span><span class="ep-desc">${esc(ep.desc)}</span>
@@ -773,14 +976,27 @@ def predict():
   const epBtns = $$('.ep', epList);
 
   let runId = 0;
-  function send(i) {
+  async function request(raw) {
     const id = ++runId;
-    const text = fmt(ENDPOINTS[i].build(), 0, 0, true);
-    const lines = text.split('\n');
-    epBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
-    resMeta.innerHTML = `<span class="ok">200 OK</span><span>application/json</span><span>${new Blob([text]).size} bytes</span>`;
-    if (reduceMotion) { resBody.innerHTML = lines.map(hlJson).join('\n'); return; }
+    const path = normPath(raw);
+    const ep = ENDPOINTS.find(e => e.path === path);
+    epBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(ENDPOINTS[j] === ep)));
+    epInput.value = path;
+    resMeta.innerHTML = '<span>Sending request…</span>';
     resBody.setAttribute('aria-busy', 'true');
+    let code = 200, body;
+    if (ep) {
+      try { body = await ep.build(); }
+      catch (e) { code = 503; body = { status: 503, error: 'GitHub API unavailable', hint: 'Rate limit or network issue. Try again in a minute.' }; }
+    } else if (path === '/api/coffee') {
+      code = 418; body = { status: 418, error: "I'm a teapot", hint: 'Wrong beverage. Try /api/developer.' };
+    } else {
+      code = 404; body = { status: 404, error: 'No endpoint at ' + path, try: ENDPOINTS.map(e => e.path) };
+    }
+    if (id !== runId) return;
+    const text = fmt(body, 0, 0, true), lines = text.split('\n');
+    resMeta.innerHTML = `<span class="${code < 300 ? 'ok' : 'err'}">${code} ${STATUS[code]}</span><span>application/json</span><span>${new Blob([text]).size} bytes</span>`;
+    if (reduceMotion) { resBody.innerHTML = lines.map(hlJson).join('\n'); resBody.setAttribute('aria-busy', 'false'); return; }
     let n = 0;
     (function tick() {
       if (id !== runId) return;
@@ -791,8 +1007,9 @@ def predict():
       else setTimeout(tick, 60);
     })();
   }
-  epList.addEventListener('click', e => { const b = e.target.closest('.ep'); if (b) send(+b.dataset.i); });
-  setTimeout(() => send(0), 350);
+  epList.addEventListener('click', e => { const b = e.target.closest('.ep'); if (b) request(ENDPOINTS[+b.dataset.i].path); });
+  $('#ep-form').addEventListener('submit', e => { e.preventDefault(); request(epInput.value); });
+  setTimeout(() => request('/api/developer'), 350);
 
   /* ---------- Work: project list + detail ---------- */
   const tabsEl = $('#project-tabs'), panelEl = $('#project-panel');
@@ -802,6 +1019,80 @@ def predict():
       aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">
       <strong>${esc(p.title)}</strong><span>${esc(p.kind)}</span>
     </button>`).join('');
+
+  function schedulerHTML() {
+    return `
+      <div class="sched" id="sched">
+        <h4>Try the scheduling logic</h4>
+        <p class="sched-intro">A JavaScript version of the same idea. Add tasks with a priority and a duration, then run the scheduler. Higher priority goes first, and ties go to whichever task arrived earlier.</p>
+        <form class="sched-form" autocomplete="off">
+          <label class="grow">Task name<input type="text" name="task" maxlength="24" placeholder="e.g. Sync inventory"></label>
+          <label>Priority
+            <select name="prio">
+              <option value="1">1 (lowest)</option><option value="2">2</option><option value="3" selected>3</option>
+              <option value="4">4</option><option value="5">5 (highest)</option>
+            </select>
+          </label>
+          <label>Duration
+            <select name="dur"><option value="1">1 unit</option><option value="2" selected>2 units</option><option value="3">3 units</option><option value="4">4 units</option></select>
+          </label>
+          <button class="btn btn-line btn-sm" type="submit">Add task</button>
+        </form>
+        <ul class="sched-tasks" aria-label="Queued tasks"></ul>
+        <div class="sched-actions">
+          <button class="btn btn-primary btn-sm" type="button" data-act="run">Run scheduler</button>
+          <button class="btn btn-line btn-sm" type="button" data-act="reset">Reset tasks</button>
+        </div>
+        <ol class="gantt" aria-label="Execution order"></ol>
+        <p class="sched-out" role="status"></p>
+      </div>`;
+  }
+  function initScheduler(rootEl) {
+    const DEFAULTS = [['Send email', 2, 2], ['Render report', 4, 3], ['Backup database', 1, 4], ['Handle login', 5, 1]];
+    let seq = 0, token = 0, tasks = [];
+    const listEl = $('.sched-tasks', rootEl), gantt = $('.gantt', rootEl), out = $('.sched-out', rootEl), f = $('.sched-form', rootEl);
+    const loadDefaults = () => { tasks = DEFAULTS.map(([n, p, d]) => ({ id: ++seq, n, p, d })); };
+    const clearResult = () => { token++; gantt.innerHTML = ''; out.textContent = ''; };
+    const drawTasks = () => {
+      listEl.innerHTML = tasks.length
+        ? tasks.map(t => `<li><span>${esc(t.n)}</span><em>P${t.p}, ${t.d} ${t.d > 1 ? 'units' : 'unit'}</em><button type="button" data-id="${t.id}" aria-label="Remove ${esc(t.n)}">×</button></li>`).join('')
+        : '<li class="none">No tasks yet. Add one above.</li>';
+    };
+    function run() {
+      const id = ++token;
+      if (!tasks.length) { gantt.innerHTML = ''; out.textContent = 'Add at least one task, then run the scheduler.'; return; }
+      const order = [...tasks].sort((a, b) => b.p - a.p || a.id - b.id);
+      let t = 0, waitSum = 0;
+      gantt.innerHTML = order.map((x, i) => {
+        const start = t; waitSum += start; t += x.d;
+        return `<li class="g-blk" style="--w:${x.d}" title="${esc(x.n)}"><b>${i + 1}. ${esc(x.n)}</b><small>P${x.p}, starts at t=${start}</small></li>`;
+      }).join('');
+      out.textContent = '';
+      const blocks = $$('.g-blk', gantt);
+      const finish = () => { out.textContent = `Finished in ${t} time units. Average wait: ${(waitSum / order.length).toFixed(1)} units.`; };
+      if (reduceMotion) { blocks.forEach(b => b.classList.add('on')); finish(); return; }
+      blocks.forEach((b, i) => setTimeout(() => { if (id === token) b.classList.add('on'); }, 260 * (i + 1)));
+      setTimeout(() => { if (id === token) finish(); }, 260 * (blocks.length + 1));
+    }
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const nameEl = f.elements.namedItem('task'), n = nameEl.value.trim();
+      if (!n) { out.textContent = 'Give the task a name first.'; nameEl.focus(); return; }
+      if (tasks.length >= 8) { out.textContent = 'You can queue up to 8 tasks. Remove one to add another.'; return; }
+      tasks.push({ id: ++seq, n, p: +f.elements.namedItem('prio').value, d: +f.elements.namedItem('dur').value });
+      nameEl.value = ''; clearResult(); drawTasks(); nameEl.focus();
+    });
+    listEl.addEventListener('click', e => {
+      const b = e.target.closest('button[data-id]'); if (!b) return;
+      tasks = tasks.filter(t => t.id !== +b.dataset.id); clearResult(); drawTasks();
+    });
+    rootEl.addEventListener('click', e => {
+      const a = e.target.closest('[data-act]'); if (!a) return;
+      if (a.dataset.act === 'run') run();
+      else { loadDefaults(); clearResult(); drawTasks(); }
+    });
+    loadDefaults(); drawTasks();
+  }
 
   function showProject(i, focus) {
     const p = D.projects[i];
@@ -818,10 +1109,12 @@ def predict():
       <ul class="built">${p.built.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
       <div class="chips">${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
       ${links ? `<div class="detail-links">${links}</div>` : ''}
+      ${p.widget === 'scheduler' ? schedulerHTML() : ''}
       <figure class="code">
         <figcaption class="code-head"><span>${esc(p.snippet.file)}</span><span>Illustrative excerpt</span></figcaption>
         <pre><code>${highlight(p.snippet.code, p.snippet.lang)}</code></pre>
       </figure>`;
+    if (p.widget === 'scheduler') initScheduler($('#sched', panelEl));
     panelEl.classList.remove('swap'); void panelEl.offsetWidth; panelEl.classList.add('swap');
     if (focus) $('#tab-' + i).focus();
   }
@@ -871,6 +1164,65 @@ def predict():
       </a>`).join('');
   }
 
+  /* ---------- Command menu (Ctrl/Cmd + K) ---------- */
+  const dlg = $('#palette'), palInput = $('#pal-input'), palList = $('#pal-list'), palBtn = $('#pal-btn');
+  if (typeof dlg.showModal !== 'function') { palBtn.hidden = true; }
+  else {
+    $('#pal-kbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform || '') ? '⌘ K' : 'Ctrl K';
+    let items = [], idx = 0;
+    const commands = () => {
+      const go = (id, label) => ({ group: 'Go to', label, run: () => jump(id) });
+      const c = [go('work', 'Work'), ...(gh.shown ? [go('github', 'GitHub activity')] : []), go('skills', 'Skills'), go('experience', 'Experience'),
+        ...(D.posts.length ? [go('writing', 'Writing')] : []), go('contact', 'Contact')];
+      D.projects.forEach((p, i) => c.push({ group: 'Projects', label: p.title, kw: p.stack.join(' ') + ' ' + p.kind, run: () => { showProject(i); jump('work'); } }));
+      c.push(
+        { group: 'Actions', label: 'Switch between light and dark theme', kw: 'theme dark light mode', run: toggleTheme },
+        { group: 'Actions', label: 'Copy email address', kw: 'mail contact', run: copyEmail },
+        { group: 'Actions', label: 'Open GitHub profile', kw: 'code repositories', run: () => window.open(D.github, '_blank', 'noopener') },
+        { group: 'Actions', label: 'Open LinkedIn profile', kw: 'network', run: () => window.open(D.linkedin, '_blank', 'noopener') });
+      if (D.resume) c.push({ group: 'Actions', label: 'Download resume', kw: 'cv', run: () => { const a = document.createElement('a'); a.href = D.resume; a.download = ''; a.click(); } });
+      c.push({ group: 'Actions', label: 'Back to top', run: () => jump('top') });
+      return c;
+    };
+    function renderPal() {
+      const q = palInput.value.trim().toLowerCase();
+      items = commands().filter(c => !q || (c.label + ' ' + c.group + ' ' + (c.kw || '')).toLowerCase().includes(q));
+      idx = 0;
+      if (!items.length) {
+        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "theme", or "email".</li>';
+        palInput.removeAttribute('aria-activedescendant'); return;
+      }
+      let last = '', html = '';
+      items.forEach((c, i) => {
+        if (c.group !== last) { html += `<li class="pal-group" role="presentation">${esc(c.group)}</li>`; last = c.group; }
+        html += `<li class="pal-item" role="option" id="pal-${i}" data-i="${i}" aria-selected="${i === 0}">${esc(c.label)}</li>`;
+      });
+      palList.innerHTML = html;
+      palInput.setAttribute('aria-activedescendant', 'pal-0');
+    }
+    function movePal(d) {
+      if (!items.length) return;
+      idx = (idx + d + items.length) % items.length;
+      $$('.pal-item', palList).forEach((el, i) => el.setAttribute('aria-selected', String(i === idx)));
+      palInput.setAttribute('aria-activedescendant', 'pal-' + idx);
+      $('#pal-' + idx).scrollIntoView({ block: 'nearest' });
+    }
+    function runPal(i) { const c = items[i]; if (!c) return; dlg.close(); setTimeout(c.run, 0); }
+    function openPal() { palInput.value = ''; renderPal(); dlg.showModal(); palInput.focus(); }
+    palBtn.addEventListener('click', openPal);
+    palInput.addEventListener('input', renderPal);
+    palInput.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); movePal(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); movePal(-1); }
+      else if (e.key === 'Enter') { e.preventDefault(); runPal(idx); }
+    });
+    palList.addEventListener('click', e => { const li = e.target.closest('.pal-item'); if (li) runPal(+li.dataset.i); });
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+    addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); dlg.open ? dlg.close() : openPal(); }
+    });
+  }
+
   /* ---------- Scroll: progress bar + active nav link ---------- */
   const bar = $('.progress i');
   const onScroll = () => {
@@ -882,15 +1234,17 @@ def predict():
   onScroll();
 
   const navLinks = $$('.nav-links a');
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      navLinks.forEach(a => a.removeAttribute('aria-current'));
-      const a = navLinks.find(l => l.getAttribute('href') === '#' + en.target.id);
-      if (a) a.setAttribute('aria-current', 'true');
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  $$('main section[id]').forEach(s => spy.observe(s));
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(a => a.removeAttribute('aria-current'));
+        const a = navLinks.find(l => l.getAttribute('href') === '#' + en.target.id);
+        if (a) a.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('main section[id]').forEach(s => spy.observe(s));
+  }
 
   $('#year').textContent = new Date().getFullYear();
 })();
