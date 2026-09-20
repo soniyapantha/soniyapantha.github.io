@@ -4,19 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Soniya Pantha — .NET Fullstack Developer</title>
-<meta name="description" content="Soniya Pantha is a mid-level .NET developer building APIs and web apps with ASP.NET Core, C#, SQL Server and React. Open to fullstack roles and freelance work.">
+<meta name="description" content="Soniya Pantha is a .NET developer building APIs and web apps with ASP.NET Core, C#, SQL Server and React. Open to fullstack roles and freelance work.">
+<link rel="canonical" href="https://soniyapantha.github.io/">
 <meta name="theme-color" content="#F5F4FA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F0C24" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://soniyapantha.github.io/">
 <meta property="og:title" content="Soniya Pantha — .NET Fullstack Developer">
 <meta property="og:description" content="ASP.NET Core, C#, SQL Server and React. Selected projects, live GitHub activity, skills and experience.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://soniyapantha.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soniya Pantha — .NET Fullstack Developer">
+<meta name="twitter:description" content="ASP.NET Core, C#, SQL Server and React.">
+<meta name="twitter:image" content="https://soniyapantha.github.io/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23512BD4%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial,sans-serif%27 font-size=%2728%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3ESP%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 
 <script>
 (function () {
@@ -33,26 +38,29 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Soniya Pantha",
-  "jobTitle": "Mid-Level .NET Developer",
-  "email": "mailto:sharmaunisha666@gmail.com",
-  "sameAs": ["https://github.com/soniyapantha", "https://www.linkedin.com/in/soniyapantha"]
+  "jobTitle": ".NET Fullstack Developer",
+  "email": "mailto:soniya.pantha.dev@gmail.com",
+  "url": "https://soniyapantha.github.io/",
+  "sameAs": [
+    "https://github.com/soniyapantha",
+    "https://www.linkedin.com/in/soniyapantha"
+  ],
+  "knowsAbout": ["C#", "ASP.NET Core", "SQL Server", "React", "REST APIs", "Entity Framework Core"]
 }
 </script>
 
 <style>
-
 :root {
   --bg: #F5F4FA;
   --surface: #FFFFFF;
   --ink: #17133A;
   --muted: #5A5680;
   --line: #DEDBEE;
-  --accent: #512BD4;          
+  --accent: #512BD4;
   --on-accent: #FFFFFF;
   --accent-soft: #ECE8FC;
   --ok: #0F7A4A;
-
- 
+  --err: #C0392B;
   --code-bg: #1A1443;
   --code-ink: #E6E2FF;
   --code-dim: #9A94CC;
@@ -61,7 +69,6 @@
   --code-num: #FFC978;
   --code-lit: #FF9DB5;
   --code-line: #2E2766;
-
   --shadow: 0 2px 4px rgba(23,19,58,.06), 0 24px 48px -20px rgba(23,19,58,.35);
   color-scheme: light;
 }
@@ -75,12 +82,12 @@
   --on-accent: #120E30;
   --accent-soft: #251F5A;
   --ok: #5EE0A0;
+  --err: #FF8A80;
   --code-bg: #0A0820;
   --code-line: #262060;
   --shadow: 0 2px 4px rgba(0,0,0,.4), 0 28px 56px -24px rgba(0,0,0,.75);
   color-scheme: dark;
 }
-
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -114,10 +121,8 @@ figure { margin: 0; }
 }
 .skip:focus { left: 8px; }
 
-
 .progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; }
 .progress i { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
-
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -141,7 +146,6 @@ figure { margin: 0; }
 .i-sun { display: none; }
 :root[data-theme="dark"] .i-sun { display: block; }
 :root[data-theme="dark"] .i-moon { display: none; }
-
 
 .nav {
   position: sticky; top: 0; z-index: 60;
@@ -179,7 +183,6 @@ figure { margin: 0; }
 }
 @media (max-width: 420px) { .resume-link { display: none; } }
 
-
 .hero { padding: clamp(48px, 8vw, 96px) 0 clamp(56px, 8vw, 96px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); margin-bottom: 22px; text-wrap: balance; }
@@ -187,7 +190,6 @@ figure { margin: 0; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
 .availability { display: inline-flex; align-items: center; gap: 12px; color: var(--muted); font-size: .95rem; }
 .availability i { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent); }
-
 
 .api {
   min-width: 0;
@@ -235,13 +237,11 @@ figure { margin: 0; }
 @keyframes blink { 50% { opacity: 0; } }
 @media (max-width: 520px) { .ep-desc, .api-server { display: none; } }
 
-
 .section { padding: clamp(64px, 9vw, 112px) 0; border-top: 1px solid var(--line); }
 .section-head { display: grid; gap: 10px; margin-bottom: 40px; max-width: 60ch; }
 .section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
 .section-head p { color: var(--muted); font-size: 1.05rem; }
 .noscript { padding: 16px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-
 
 .work { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; align-items: start; }
 .work-list { display: grid; gap: 8px; position: sticky; top: 92px; }
@@ -274,7 +274,6 @@ figure { margin: 0; }
 @keyframes swap { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .swap { animation: swap .28s ease-out; }
 
-
 .sched { margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 2.4vw, 24px); background: var(--bg); }
 .sched h4 { margin-bottom: 4px; }
 .sched-intro { color: var(--muted); font-size: .93rem; margin-bottom: 16px; max-width: 62ch; }
@@ -304,7 +303,6 @@ figure { margin: 0; }
 .g-blk small { color: var(--muted); font-size: .74rem; }
 .sched-out { color: var(--muted); font-size: .93rem; margin-top: 12px; min-height: 1.5em; }
 
-
 .gh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; margin-bottom: 36px; }
 .stat b { display: block; font: 700 clamp(2rem, 4vw, 2.8rem)/1 'Bricolage Grotesque', sans-serif; letter-spacing: -.02em; margin-bottom: 6px; }
 .stat span { color: var(--muted); font-size: .92rem; }
@@ -324,7 +322,6 @@ figure { margin: 0; }
   .repo-meta { flex-wrap: wrap; white-space: normal; gap: 6px 16px; }
 }
 
-
 .grp { font: 600 1rem/1.3 'Instrument Sans', sans-serif; letter-spacing: 0; color: var(--muted); margin-bottom: 14px; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 48px; }
 .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
@@ -337,7 +334,6 @@ figure { margin: 0; }
 .skill-list b { font-weight: 600; }
 .skill-list span { color: var(--muted); font-size: .92rem; text-align: right; }
 
-
 .timeline { list-style: none; margin: 0; padding: 0 0 0 30px; border-left: 2px solid var(--line); max-width: 780px; }
 .tl { position: relative; padding-bottom: 44px; }
 .tl:last-child { padding-bottom: 0; }
@@ -348,16 +344,6 @@ figure { margin: 0; }
 .tl-org { color: var(--accent); font-weight: 600; margin: 4px 0 12px; }
 .tl ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 62ch; display: grid; gap: 6px; }
 
-
-.posts { display: grid; gap: 0; max-width: 780px; }
-.post { display: block; padding: 22px 0; border-top: 1px solid var(--line); text-decoration: none; }
-.post:last-child { border-bottom: 1px solid var(--line); }
-.post h3 { font-size: 1.3rem; margin-bottom: 6px; }
-.post:hover h3 { color: var(--accent); }
-.post p { color: var(--muted); max-width: 62ch; }
-.post small { display: block; margin-top: 8px; color: var(--muted); }
-
-
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 16px; text-wrap: balance; }
 .contact .lede { margin-bottom: 0; }
@@ -366,868 +352,4 @@ figure { margin: 0; }
 .field input, .field textarea {
   width: 100%; font: 400 1rem/1.5 'Instrument Sans', system-ui, sans-serif; color: var(--ink);
   background: var(--surface); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px;
-  transition: border-color .2s, box-shadow .2s;
-}
-.field textarea { resize: vertical; min-height: 120px; }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent); }
-.form .btn { justify-self: start; }
-.form-msg { min-height: 1.5em; font-size: .92rem; color: var(--muted); }
-.form-msg[data-state="error"] { color: #C0392B; font-weight: 600; }
-:root[data-theme="dark"] .form-msg[data-state="error"] { color: #FF8A80; }
-
-.links { list-style: none; margin: 0; padding: 0; }
-.link-row { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
-.link-row:first-child { border-top: 1px solid var(--line); }
-.link-main { flex: 1; min-width: 0; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; text-decoration: none; }
-.link-main span:first-child { font-weight: 600; }
-.link-main span:last-child { color: var(--muted); overflow-wrap: anywhere; text-align: right; transition: color .2s; }
-.link-main:hover span:last-child { color: var(--accent); }
-
-footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .9rem; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-
-.toast {
-  position: fixed; left: 50%; bottom: 24px; z-index: 80; transform: translate(-50%, 20px);
-  background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px;
-  font-size: .9rem; font-weight: 500; opacity: 0; pointer-events: none;
-  transition: opacity .2s ease, transform .2s ease;
-}
-.toast.show { opacity: 1; transform: translate(-50%, 0); }
-
-
-.palette {
-  width: min(580px, calc(100% - 32px)); max-height: min(520px, 78vh); margin: 12vh auto auto;
-  padding: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink);
-  box-shadow: var(--shadow); overflow: hidden;
-}
-.palette[open] { display: flex; flex-direction: column; }
-.palette::backdrop { background: rgba(15,12,36,.55); backdrop-filter: blur(3px); }
-#pal-input {
-  width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink);
-  font: 400 1.05rem 'Instrument Sans', system-ui, sans-serif; padding: 18px 20px; outline: none;
-}
-#pal-input:focus-visible { box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
-#pal-list { list-style: none; margin: 0; padding: 8px; overflow-y: auto; }
-.pal-group { padding: 10px 12px 4px; font-size: .8rem; font-weight: 600; color: var(--muted); }
-.pal-item { padding: 10px 12px; border-radius: 8px; cursor: pointer; }
-.pal-item[aria-selected="true"] { background: var(--accent-soft); }
-.pal-empty { padding: 18px 12px; color: var(--muted); }
-.pal-foot { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
-
-
-@media (max-width: 900px) {
-  .hero-grid, .contact-grid { grid-template-columns: 1fr; }
-  .work { grid-template-columns: 1fr; }
-  .work-list { position: static; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-}
-@media (max-width: 640px) {
-  .skill-list li { flex-direction: column; gap: 2px; }
-  .skill-list span { text-align: left; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
-</style>
-</head>
-
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" aria-hidden="true"><i></i></div>
-
-<nav class="nav" aria-label="Primary">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="Soniya Pantha, back to top">
-      <span class="brand-mark" aria-hidden="true">SP</span>
-      <span>Soniya Pantha</span>
-    </a>
-    <div class="nav-links" id="nav-links">
-      <a href="#work">Work</a>
-      <a href="#github" id="nav-github" hidden>GitHub</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#writing" id="nav-writing" hidden>Writing</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <button class="btn btn-line btn-sm pal-btn" id="pal-btn" type="button" aria-label="Open command menu">Jump to <kbd id="pal-kbd">Ctrl K</kbd></button>
-      <a class="btn btn-line btn-sm resume-link" id="resume-link" href="resume.pdf" download hidden>Resume</a>
-      <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
-        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
-      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<main id="main">
-
- 
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Soniya Pantha builds .NET backends and the web apps in front of them.</h1>
-        <p class="lede">Mid-level .NET developer with two years of production experience in ASP.NET Core, C#, and SQL Server, plus full-stack project work in PHP, Python, and React.</p>
-        <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">View projects</a>
-          <a href="#contact" class="btn btn-line">Contact me</a>
-        </div>
-        <p class="availability"><i aria-hidden="true"></i>Open to fullstack roles and freelance work</p>
-      </div>
-
-      <div class="api" role="group" aria-label="Interactive API explorer about Soniya Pantha">
-        <div class="api-head">
-          <div class="api-top">
-            <div class="api-title">Soniya.Portfolio.Api <span class="api-ver">v1</span></div>
-            <div class="api-server">https://localhost:7001</div>
-          </div>
-          <p class="api-hint">Select an endpoint, or type your own path.</p>
-        </div>
-        <div id="ep-list"></div>
-        <form class="ep-form" id="ep-form" autocomplete="off">
-          <span class="method">GET</span>
-          <input class="ep-input" id="ep-input" type="text" maxlength="60" spellcheck="false" placeholder="/api/hobbies" aria-label="Request path">
-          <button class="ep-send" type="submit">Send</button>
-        </form>
-        <div class="res">
-          <div class="res-meta" id="res-meta"></div>
-          <pre id="res-body" aria-live="polite"></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
- 
-  <section class="section" id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Selected work</h2>
-        <p>Three projects that show how I work with data, algorithms, and full-stack delivery.</p>
-      </div>
-      <div class="work">
-        <div class="work-list" id="project-tabs" role="tablist" aria-orientation="vertical" aria-label="Projects"></div>
-        <article class="detail" id="project-panel" role="tabpanel" tabindex="0"></article>
-      </div>
-      <noscript><p class="noscript">JavaScript is turned off, so projects can't load here. See my work on GitHub instead.</p></noscript>
-    </div>
-  </section>
-
-
-  <section class="section" id="github" hidden>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Live from GitHub</h2>
-        <p>Pulled from my public profile when you opened this page.</p>
-      </div>
-      <div class="gh-stats" id="gh-stats"></div>
-      <div class="lang-bar" id="lang-bar" role="img" aria-label="Languages used across my repositories"></div>
-      <div class="lang-legend" id="lang-legend"></div>
-      <div id="gh-repos"></div>
-    </div>
-  </section>
-
-
-  <section class="section" id="skills">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <p>What I use every day, and what I've picked up along the way.</p>
-      </div>
-      <div id="skills-body"></div>
-    </div>
-  </section>
-
-  
-  <section class="section" id="experience">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Experience</h2>
-        <p>Two years in production, plus the coursework and projects behind it.</p>
-      </div>
-      <ol class="timeline" id="timeline"></ol>
-    </div>
-  </section>
-
-
-  <section class="section" id="writing" hidden>
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Writing</h2>
-        <p>Notes on .NET, debugging, and lessons from the job.</p>
-      </div>
-      <div class="posts" id="posts"></div>
-    </div>
-  </section>
-
-
-  <section class="section contact" id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <h2>Let's build something reliable together.</h2>
-        <p class="lede">Open to fullstack roles and freelance work. I usually reply within a day.</p>
-        <form class="form" id="contact-form" novalidate>
-          <label class="field">Your name
-            <input type="text" name="sender" autocomplete="name">
-          </label>
-          <label class="field">Message
-            <textarea name="message" rows="4"></textarea>
-          </label>
-          <button class="btn btn-primary" type="submit">Open email draft</button>
-          <p class="form-msg" id="form-msg" role="status">Opens your email app with this message ready to send.</p>
-        </form>
-      </div>
-      <ul class="links" id="contact-links"></ul>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>© <span id="year">2026</span> Soniya Pantha. Built with plain HTML, CSS, and JavaScript. No framework, no build step.</p>
-    <a href="#top">Back to top</a>
-  </div>
-</footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<dialog class="palette" id="palette" aria-label="Command menu">
-  <input id="pal-input" type="text" role="combobox" aria-expanded="true" aria-controls="pal-list" aria-autocomplete="list" placeholder="Search sections, projects, and actions" autocomplete="off" spellcheck="false">
-  <ul id="pal-list" role="listbox" aria-label="Commands"></ul>
-  <p class="pal-foot">Use the arrow keys to move, Enter to select, Esc to close.</p>
-</dialog>
-
-<script>
-
-const DATA = {
-  name: 'Soniya Pantha',
-  role: 'Mid-Level .NET Developer',
-  years: 2,
-  headlineStack: ['C#', 'ASP.NET Core', 'SQL Server', 'React'],
-  mentoring: 'interns and junior developers',
-
-  email: 'sharmaunisha666@gmail.com',                     
-  github: 'https://github.com/soniyapantha',           
-  linkedin: 'https://www.linkedin.com/in/soniyapantha',
-  resume: 'resume.pdf',   
-
-  projects: [
-    {
-      title: 'Online Thrift Book Store',
-      kind: 'Full-stack e-commerce',
-      description: 'A full-stack platform for buying and selling second-hand books, with user registration, product listings, a cart, and order management.',
-      built: [
-        'Designed the MySQL schema for users, listings, and transactions',
-        'Added server-side validation to keep bad data out of the database',
-        'Built registration, listings, cart, and order management end to end'
-      ],
-      stack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
-      demo: '',   
-      repo: '',   
-      snippet: {  
-        file: 'schema.sql', lang: 'sql',
-        code: `CREATE TABLE listings (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  seller_id INT NOT NULL,
-  title VARCHAR(150) NOT NULL,
-  price DECIMAL(8,2) NOT NULL,
-  status ENUM('available', 'sold') DEFAULT 'available',
-  FOREIGN KEY (seller_id) REFERENCES users(id)
-);`
-      }
-    },
-    {
-      title: 'Priority-Based Task Scheduler',
-      kind: 'Algorithm visualizer',
-      description: 'An application that implements priority-based CPU task scheduling. You add tasks with priority levels and it shows the order they run in.',
-      built: [
-        'Implemented the priority scheduling logic in C#',
-        'Visualizes the execution order as tasks are added',
-        'Turned a core operating-systems algorithm into a working, testable .NET application'
-      ],
-      stack: ['C#', '.NET'], '
-      demo: '',
-      repo: '',
-      widget: 'scheduler',     
-      snippet: {
-        file: 'Scheduler.cs', lang: 'cs',
-        code: `// Highest priority first; earlier arrival breaks ties
-var queue = new PriorityQueue<ScheduledTask, (int, DateTime)>();
-
-foreach (var task in tasks)
-    queue.Enqueue(task, (-task.Priority, task.ArrivedAt));
-
-while (queue.TryDequeue(out var next, out _))
-    timeline.Add(next);`
-      }
-    },
-    {
-      title: 'Student Performance Prediction System',
-      kind: 'Machine learning web app',
-      description: 'A web app that predicts a student\u2019s academic performance from historical data, served through a Flask backend.',
-      built: [
-        'Cleaned and prepared the historical data for modeling',
-        'Integrated the scikit-learn model into the application',
-        'Structured the Flask routes that connect the ML layer to the frontend'
-      ],
-      stack: ['Python', 'Flask', 'scikit-learn', 'HTML/CSS'],
-      demo: '',
-      repo: '',
-      snippet: {
-        file: 'app.py', lang: 'py',
-        code: `@app.route("/predict", methods=["POST"])
-def predict():
-    features = preprocess(request.form)
-    score = model.predict([features])[0]
-    return render_template("result.html", score=round(score, 1))`
-      }
-    }
-  ],
-
-  // "short" is what the hero API shows when the full name is too long for a JSON line
-  skills: [
-    { group: 'Primary stack', key: 'primary', items: [
-      { name: 'C# / .NET', note: 'ASP.NET Core, Web API, MVC' },
-      { name: 'EF Core', note: 'Entity Framework Core: code-first, migrations' },
-      { name: 'SQL Server / MySQL', short: 'SQL Server', note: 'Schema design and queries' },
-      { name: 'REST APIs', note: 'Design and integration' }
-    ]},
-    { group: 'Also worked with', key: 'also', items: [
-      { name: 'PHP', note: 'Academic full-stack project' },
-      { name: 'Python / Flask', note: 'ML-integrated web app' },
-      { name: 'React / JavaScript', short: 'React', note: '' },
-      { name: 'HTML / CSS', note: 'Responsive layouts' }
-    ]},
-    { group: 'Tooling and practices', key: 'tooling', items: [
-      { name: 'Git / GitHub', short: 'Git', note: 'Branching, PR workflows' },
-      { name: 'Mentoring', note: 'Interns and junior developers' },
-      { name: 'Azure', note: 'App Service, basic CI/CD' },
-      { name: 'Unit testing', note: 'xUnit basics' }
-    ]}
-  ],
-
-  experience: [
-    {
-      period: '',   
-      role: 'Mid-Level .NET Developer',
-      org: '',                   
-      points: [
-        'Build and maintain ASP.NET Core services and REST APIs used in production.',
-        'Mentor interns and junior developers on code quality, debugging, and .NET fundamentals.'
-      
-      ]
-    }
-  ],
-  education: {
-    period: '',                                        
-    role: 'Bachelor of Computer Applications (BCA)',
-    org: '',                               
-    points: [
-      'Coursework in web development, databases, and operating-system fundamentals.',
-      'Built full-stack projects in PHP, .NET, and Python/Flask during the final semesters.'
-    ]
-  },
-
- 
-  posts: []
-};
-
-
-(() => {
-  'use strict';
-  const D = DATA;
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const escText = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const esc = s => escText(s).replace(/"/g, '&quot;');
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const pretty = url => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
-  const jump = id => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); };
-  function whenVisible(el, fn) {
-    if (!('IntersectionObserver' in window)) return fn();
-    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); fn(); } }, { threshold: .25 });
-    io.observe(el);
-  }
-
-  /* ---------- Theme ---------- */
-  const root = document.documentElement;
-  const themeBtn = $('#theme-btn');
-  const syncThemeLabel = () => themeBtn.setAttribute('aria-label',
-    root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-  function toggleTheme() {
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    syncThemeLabel();
-  }
-  themeBtn.addEventListener('click', toggleTheme);
-  syncThemeLabel();
-
-  /* ---------- Mobile menu ---------- */
-  const nav = $('.nav'), menuBtn = $('#menu-btn');
-  const setMenu = open => { nav.dataset.open = open; menuBtn.setAttribute('aria-expanded', open); };
-  menuBtn.addEventListener('click', () => setMenu(nav.dataset.open !== 'true'));
-  $$('.nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-
-  /* ---------- Resume + contact links ---------- */
-  if (D.resume) { const r = $('#resume-link'); r.href = D.resume; r.hidden = false; }
-
-  $('#contact-links').innerHTML = `
-    <li class="link-row">
-      <a class="link-main" href="mailto:${esc(D.email)}"><span>Email</span><span>${esc(D.email)}</span></a>
-      <button class="btn btn-line btn-sm" type="button" id="copy-email">Copy</button>
-    </li>
-    <li class="link-row"><a class="link-main" href="${esc(D.github)}" target="_blank" rel="noopener"><span>GitHub</span><span>${esc(pretty(D.github))}</span></a></li>
-    <li class="link-row"><a class="link-main" href="${esc(D.linkedin)}" target="_blank" rel="noopener"><span>LinkedIn</span><span>${esc(pretty(D.linkedin))}</span></a></li>`;
-
-  /* ---------- Toast + clipboard ---------- */
-  const toast = $('#toast');
-  let toastTimer;
-  const showToast = msg => {
-    toast.textContent = msg; toast.classList.add('show');
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
-  };
-  async function copyText(text) {
-    try { await navigator.clipboard.writeText(text); return true; }
-    catch (e) {
-      const t = document.createElement('textarea');
-      t.value = text; t.style.cssText = 'position:fixed;opacity:0';
-      document.body.appendChild(t); t.select();
-      let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {}
-      t.remove(); return ok;
-    }
-  }
-  async function copyEmail() {
-    showToast(await copyText(D.email) ? 'Email address copied' : 'Copy failed. Select the address and copy it manually.');
-  }
-  $('#copy-email').addEventListener('click', copyEmail);
-
-  /* ---------- Contact form (opens the visitor's email app) ---------- */
-  const form = $('#contact-form'), formMsg = $('#form-msg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const nameEl = form.elements.namedItem('sender'), msgEl = form.elements.namedItem('message');
-    const name = nameEl.value.trim(), msg = msgEl.value.trim();
-    if (!name || !msg) {
-      formMsg.dataset.state = 'error';
-      formMsg.textContent = !name ? 'Enter your name so I know who to reply to.' : 'Write a short message before opening the draft.';
-      (!name ? nameEl : msgEl).focus();
-      return;
-    }
-    delete formMsg.dataset.state;
-    formMsg.textContent = "Your email app should open with the draft. If it doesn't, copy my address above and write to me directly.";
-    const subject = `Portfolio enquiry from ${name}`;
-    location.href = `mailto:${D.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg + '\n\n' + name)}`;
-  });
-
-  /* ---------- Tiny syntax highlighter ---------- */
-  const RULES = {
-    cs:  /(\/\/[^\n]*)|("(?:[^"\\\n]|\\.)*")|\b(var|new|foreach|in|while|out|return|public|class|int|string|bool|using|static)\b|\b(\d+(?:\.\d+)?)\b/g,
-    sql: /(--[^\n]*)|('(?:[^'\\\n]|\\.)*')|\b(CREATE|TABLE|INT|PRIMARY|KEY|AUTO_INCREMENT|NOT|NULL|VARCHAR|DECIMAL|ENUM|DEFAULT|FOREIGN|REFERENCES)\b|\b(\d+(?:\.\d+)?)\b/g,
-    py:  /(#[^\n]*)|("(?:[^"\\\n]|\\.)*")|\b(def|return|import|from|if|else|for|in|class|None|True|False)\b|\b(\d+(?:\.\d+)?)\b/g
-  };
-  const highlight = (code, lang) => escText(code).replace(RULES[lang], (m, c, s, k) =>
-    `<span class="${c ? 'c-c' : s ? 'c-s' : k ? 'c-k' : 'c-n'}">${m}</span>`);
-
- 
-  const gh = { user: ((D.github || '').match(/github\.com\/([^/?#]+)/) || [])[1], promise: null, shown: false };
-  function loadGitHub() {
-    if (gh.promise) return gh.promise;
-    gh.promise = (async () => {
-      if (!gh.user) throw new Error('No GitHub username');
-      const key = 'gh:' + gh.user;
-      try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < 6e5) return c.v; } catch (e) {}
-      const get = url => fetch(url).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
-      const [u, repos] = await Promise.all([
-        get(`https://api.github.com/users/${gh.user}`),
-        get(`https://api.github.com/users/${gh.user}/repos?per_page=100&sort=pushed`)
-      ]);
-      const v = {
-        user: { login: u.login, repos: u.public_repos, followers: u.followers },
-        repos: repos.filter(r => !r.fork).map(r => ({
-          name: r.name, url: r.html_url, desc: r.description, lang: r.language, stars: r.stargazers_count, pushed: r.pushed_at }))
-      };
-      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
-      return v;
-    })();
-    return gh.promise;
-  }
-  const langStats = repos => {
-    const m = {};
-    repos.forEach(r => { if (r.lang) m[r.lang] = (m[r.lang] || 0) + 1; });
-    const total = Object.values(m).reduce((a, b) => a + b, 0) || 1;
-    return Object.entries(m).sort((a, b) => b[1] - a[1]).map(([name, n]) => ({ name, n, pct: Math.round(n / total * 100) }));
-  };
-  const LANG_COLORS = { 'C#': '#8B6CF0', JavaScript: '#E8B923', TypeScript: '#3B82F6', HTML: '#E5533D', CSS: '#2DB5C4',
-    Python: '#3B82C4', PHP: '#7A86B8', Java: '#C77B30', 'Jupyter Notebook': '#F37626', 'C++': '#E0559D', C: '#6E7681', Shell: '#4EAA25' };
-  const FALLBACK = ['#D96C9D', '#5FB49C', '#B08968', '#7C8DB5', '#C9A227'];
-  const langColor = (name, i) => LANG_COLORS[name] || FALLBACK[i % FALLBACK.length];
-  const ago = iso => {
-    const d = (Date.now() - new Date(iso)) / 864e5;
-    if (d < 1) return 'today'; if (d < 2) return 'yesterday';
-    if (d < 30) return Math.floor(d) + ' days ago';
-    if (d < 365) return Math.floor(d / 30) + ' months ago';
-    return Math.floor(d / 365) + ' years ago';
-  };
-  function countUp(el, to) {
-    if (reduceMotion || to < 2) { el.textContent = to; return; }
-    const t0 = performance.now();
-    const step = now => { const p = Math.min(1, (now - t0) / 900); el.textContent = Math.round(to * (1 - (1 - p) ** 3)); if (p < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  }
-  function renderGitHub(v) {
-    const list = v.repos.filter(r => r.name.toLowerCase() !== (gh.user + '.github.io').toLowerCase());
-    if (!v.repos.length) return;
-    const langs = langStats(v.repos);
-    const stars = v.repos.reduce((s, r) => s + r.stars, 0);
-    const stats = [['Public repositories', v.user.repos], ['Followers', v.user.followers], ['Stars earned', stars], ['Languages used', langs.length]];
-    $('#gh-stats').innerHTML = stats.map(([label, n]) => `<div class="stat"><b data-n="${n}">${n}</b><span>${esc(label)}</span></div>`).join('');
-    $('#lang-bar').innerHTML = langs.map((l, i) => `<i style="background:${langColor(l.name, i)}" data-w="${l.pct}" title="${esc(l.name)} ${l.pct}%"></i>`).join('');
-    $('#lang-legend').innerHTML = langs.slice(0, 6).map((l, i) => `<span><i style="background:${langColor(l.name, i)}"></i>${esc(l.name)} ${l.pct}%</span>`).join('');
-    $('#gh-repos').innerHTML = list.slice(0, 6).map(r => {
-      const li = langs.findIndex(l => l.name === r.lang);
-      return `<a class="repo" href="${esc(r.url)}" target="_blank" rel="noopener">
-        <div><h3>${esc(r.name)}</h3><p>${esc(r.desc || 'No description yet.')}</p></div>
-        <div class="repo-meta">
-          ${r.lang ? `<span class="lang"><i style="background:${langColor(r.lang, li < 0 ? 0 : li)}"></i>${esc(r.lang)}</span>` : ''}
-          ${r.stars ? `<span>${r.stars} ${r.stars === 1 ? 'star' : 'stars'}</span>` : ''}
-          <span>Updated ${esc(ago(r.pushed))}</span>
-        </div></a>`;
-    }).join('');
-    $('#github').hidden = false; $('#nav-github').hidden = false; gh.shown = true;
-    whenVisible($('#github'), () => {
-      $$('#gh-stats b').forEach(b => countUp(b, +b.dataset.n));
-      requestAnimationFrame(() => $$('#lang-bar i').forEach(i => { i.style.width = i.dataset.w + '%'; }));
-    });
-    if (reduceMotion) $$('#lang-bar i').forEach(i => { i.style.width = i.dataset.w + '%'; });
-  }
-  loadGitHub().then(renderGitHub).catch(() => { /* section simply stays hidden */ });
-
-  /* ---------- Hero: interactive API explorer ---------- */
-  const inl = v => Array.isArray(v) ? '[' + v.map(inl).join(', ') + ']'
-    : v && typeof v === 'object' ? '{ ' + Object.entries(v).map(([k, x]) => JSON.stringify(k) + ': ' + inl(x)).join(', ') + ' }'
-    : JSON.stringify(v);
-  function fmt(v, depth = 0, prefix = 0, force = false) {
-    const flat = inl(v);
-    if (!force && (typeof v !== 'object' || v === null || flat.length + depth * 2 + prefix <= 66)) return flat;
-    const pad = '  '.repeat(depth + 1), end = '  '.repeat(depth);
-    if (Array.isArray(v)) return '[\n' + v.map(x => pad + fmt(x, depth + 1)).join(',\n') + '\n' + end + ']';
-    return '{\n' + Object.entries(v).map(([k, x]) => {
-      const key = JSON.stringify(k) + ': ';
-      return pad + key + fmt(x, depth + 1, key.length);
-    }).join(',\n') + '\n' + end + '}';
-  }
-  const hlJson = line => escText(line).replace(
-    /("(?:[^"\\]|\\.)*")(\s*:)?|\b(true|false|null)\b|(-?\b\d+(?:\.\d+)?\b)/g,
-    (m, s, colon, lit, num) => s ? (colon ? `<span class="j-k">${s}</span>${colon}` : `<span class="j-s">${s}</span>`)
-      : lit ? `<span class="j-l">${lit}</span>` : `<span class="j-n">${num}</span>`);
-
-  const STATUS = { 200: 'OK', 404: 'Not Found', 418: "I'm a Teapot", 503: 'Service Unavailable' };
-  const ENDPOINTS = [
-    { path: '/api/developer', desc: 'Who I am', build: async () => ({
-        name: D.name, role: D.role, yearsExperience: D.years, stack: D.headlineStack, mentors: D.mentoring }) },
-    { path: '/api/projects', desc: 'What I built', build: async () => ({
-        total: D.projects.length, items: D.projects.map(p => p.title) }) },
-    { path: '/api/skills', desc: 'What I use', build: async () =>
-        Object.fromEntries(D.skills.map(g => [g.key, g.items.map(i => i.short || i.name)])) },
-    { path: '/api/github', desc: 'Live stats', build: async () => {
-        const v = await loadGitHub();
-        return { user: v.user.login, publicRepos: v.user.repos, followers: v.user.followers,
-          topLanguages: langStats(v.repos).slice(0, 3).map(l => l.name) };
-      } },
-    { path: '/api/availability', desc: 'Work with me', build: async () => ({
-        open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', email: D.email }) }
-  ];
-  const normPath = raw => {
-    let p = raw.trim().toLowerCase().replace(/^get\s+/, '');
-    if (!p.startsWith('/')) p = '/' + p;
-    return p.length > 1 ? p.replace(/\/+$/, '') : p;
-  };
-
-  const epList = $('#ep-list'), resBody = $('#res-body'), resMeta = $('#res-meta'), epInput = $('#ep-input');
-  epList.innerHTML = ENDPOINTS.map((ep, i) => `
-    <button class="ep" type="button" data-i="${i}" aria-pressed="false">
-      <span class="method">GET</span><span>${esc(ep.path)}</span><span class="ep-desc">${esc(ep.desc)}</span>
-    </button>`).join('');
-  const epBtns = $$('.ep', epList);
-
-  let runId = 0;
-  async function request(raw) {
-    const id = ++runId;
-    const path = normPath(raw);
-    const ep = ENDPOINTS.find(e => e.path === path);
-    epBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(ENDPOINTS[j] === ep)));
-    epInput.value = path;
-    resMeta.innerHTML = '<span>Sending request…</span>';
-    resBody.setAttribute('aria-busy', 'true');
-    let code = 200, body;
-    if (ep) {
-      try { body = await ep.build(); }
-      catch (e) { code = 503; body = { status: 503, error: 'GitHub API unavailable', hint: 'Rate limit or network issue. Try again in a minute.' }; }
-    } else if (path === '/api/coffee') {
-      code = 418; body = { status: 418, error: "I'm a teapot", hint: 'Wrong beverage. Try /api/developer.' };
-    } else {
-      code = 404; body = { status: 404, error: 'No endpoint at ' + path, try: ENDPOINTS.map(e => e.path) };
-    }
-    if (id !== runId) return;
-    const text = fmt(body, 0, 0, true), lines = text.split('\n');
-    resMeta.innerHTML = `<span class="${code < 300 ? 'ok' : 'err'}">${code} ${STATUS[code]}</span><span>application/json</span><span>${new Blob([text]).size} bytes</span>`;
-    if (reduceMotion) { resBody.innerHTML = lines.map(hlJson).join('\n'); resBody.setAttribute('aria-busy', 'false'); return; }
-    let n = 0;
-    (function tick() {
-      if (id !== runId) return;
-      n++;
-      const done = n >= lines.length;
-      resBody.innerHTML = lines.slice(0, n).map(hlJson).join('\n') + (done ? '' : '<span class="caret"></span>');
-      if (done) resBody.setAttribute('aria-busy', 'false');
-      else setTimeout(tick, 60);
-    })();
-  }
-  epList.addEventListener('click', e => { const b = e.target.closest('.ep'); if (b) request(ENDPOINTS[+b.dataset.i].path); });
-  $('#ep-form').addEventListener('submit', e => { e.preventDefault(); request(epInput.value); });
-  setTimeout(() => request('/api/developer'), 350);
-
-  /* ---------- Work: project list + detail ---------- */
-  const tabsEl = $('#project-tabs'), panelEl = $('#project-panel');
-  const N = D.projects.length;
-  tabsEl.innerHTML = D.projects.map((p, i) => `
-    <button class="tab" type="button" role="tab" id="tab-${i}" data-i="${i}" aria-controls="project-panel"
-      aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">
-      <strong>${esc(p.title)}</strong><span>${esc(p.kind)}</span>
-    </button>`).join('');
-
-  function schedulerHTML() {
-    return `
-      <div class="sched" id="sched">
-        <h4>Try the scheduling logic</h4>
-        <p class="sched-intro">A JavaScript version of the same idea. Add tasks with a priority and a duration, then run the scheduler. Higher priority goes first, and ties go to whichever task arrived earlier.</p>
-        <form class="sched-form" autocomplete="off">
-          <label class="grow">Task name<input type="text" name="task" maxlength="24" placeholder="e.g. Sync inventory"></label>
-          <label>Priority
-            <select name="prio">
-              <option value="1">1 (lowest)</option><option value="2">2</option><option value="3" selected>3</option>
-              <option value="4">4</option><option value="5">5 (highest)</option>
-            </select>
-          </label>
-          <label>Duration
-            <select name="dur"><option value="1">1 unit</option><option value="2" selected>2 units</option><option value="3">3 units</option><option value="4">4 units</option></select>
-          </label>
-          <button class="btn btn-line btn-sm" type="submit">Add task</button>
-        </form>
-        <ul class="sched-tasks" aria-label="Queued tasks"></ul>
-        <div class="sched-actions">
-          <button class="btn btn-primary btn-sm" type="button" data-act="run">Run scheduler</button>
-          <button class="btn btn-line btn-sm" type="button" data-act="reset">Reset tasks</button>
-        </div>
-        <ol class="gantt" aria-label="Execution order"></ol>
-        <p class="sched-out" role="status"></p>
-      </div>`;
-  }
-  function initScheduler(rootEl) {
-    const DEFAULTS = [['Send email', 2, 2], ['Render report', 4, 3], ['Backup database', 1, 4], ['Handle login', 5, 1]];
-    let seq = 0, token = 0, tasks = [];
-    const listEl = $('.sched-tasks', rootEl), gantt = $('.gantt', rootEl), out = $('.sched-out', rootEl), f = $('.sched-form', rootEl);
-    const loadDefaults = () => { tasks = DEFAULTS.map(([n, p, d]) => ({ id: ++seq, n, p, d })); };
-    const clearResult = () => { token++; gantt.innerHTML = ''; out.textContent = ''; };
-    const drawTasks = () => {
-      listEl.innerHTML = tasks.length
-        ? tasks.map(t => `<li><span>${esc(t.n)}</span><em>P${t.p}, ${t.d} ${t.d > 1 ? 'units' : 'unit'}</em><button type="button" data-id="${t.id}" aria-label="Remove ${esc(t.n)}">×</button></li>`).join('')
-        : '<li class="none">No tasks yet. Add one above.</li>';
-    };
-    function run() {
-      const id = ++token;
-      if (!tasks.length) { gantt.innerHTML = ''; out.textContent = 'Add at least one task, then run the scheduler.'; return; }
-      const order = [...tasks].sort((a, b) => b.p - a.p || a.id - b.id);
-      let t = 0, waitSum = 0;
-      gantt.innerHTML = order.map((x, i) => {
-        const start = t; waitSum += start; t += x.d;
-        return `<li class="g-blk" style="--w:${x.d}" title="${esc(x.n)}"><b>${i + 1}. ${esc(x.n)}</b><small>P${x.p}, starts at t=${start}</small></li>`;
-      }).join('');
-      out.textContent = '';
-      const blocks = $$('.g-blk', gantt);
-      const finish = () => { out.textContent = `Finished in ${t} time units. Average wait: ${(waitSum / order.length).toFixed(1)} units.`; };
-      if (reduceMotion) { blocks.forEach(b => b.classList.add('on')); finish(); return; }
-      blocks.forEach((b, i) => setTimeout(() => { if (id === token) b.classList.add('on'); }, 260 * (i + 1)));
-      setTimeout(() => { if (id === token) finish(); }, 260 * (blocks.length + 1));
-    }
-    f.addEventListener('submit', e => {
-      e.preventDefault();
-      const nameEl = f.elements.namedItem('task'), n = nameEl.value.trim();
-      if (!n) { out.textContent = 'Give the task a name first.'; nameEl.focus(); return; }
-      if (tasks.length >= 8) { out.textContent = 'You can queue up to 8 tasks. Remove one to add another.'; return; }
-      tasks.push({ id: ++seq, n, p: +f.elements.namedItem('prio').value, d: +f.elements.namedItem('dur').value });
-      nameEl.value = ''; clearResult(); drawTasks(); nameEl.focus();
-    });
-    listEl.addEventListener('click', e => {
-      const b = e.target.closest('button[data-id]'); if (!b) return;
-      tasks = tasks.filter(t => t.id !== +b.dataset.id); clearResult(); drawTasks();
-    });
-    rootEl.addEventListener('click', e => {
-      const a = e.target.closest('[data-act]'); if (!a) return;
-      if (a.dataset.act === 'run') run();
-      else { loadDefaults(); clearResult(); drawTasks(); }
-    });
-    loadDefaults(); drawTasks();
-  }
-
-  function showProject(i, focus) {
-    const p = D.projects[i];
-    $$('.tab', tabsEl).forEach((t, j) => { t.setAttribute('aria-selected', String(j === i)); t.tabIndex = j === i ? 0 : -1; });
-    panelEl.setAttribute('aria-labelledby', 'tab-' + i);
-    const links = [
-      p.demo && `<a class="btn btn-primary btn-sm" href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo</a>`,
-      p.repo && `<a class="btn btn-line btn-sm" href="${esc(p.repo)}" target="_blank" rel="noopener">View on GitHub</a>`
-    ].filter(Boolean).join('');
-    panelEl.innerHTML = `
-      <h3>${esc(p.title)}</h3>
-      <p class="detail-desc">${esc(p.description)}</p>
-      <h4>What I built</h4>
-      <ul class="built">${p.built.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
-      <div class="chips">${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
-      ${links ? `<div class="detail-links">${links}</div>` : ''}
-      ${p.widget === 'scheduler' ? schedulerHTML() : ''}
-      <figure class="code">
-        <figcaption class="code-head"><span>${esc(p.snippet.file)}</span><span>Illustrative excerpt</span></figcaption>
-        <pre><code>${highlight(p.snippet.code, p.snippet.lang)}</code></pre>
-      </figure>`;
-    if (p.widget === 'scheduler') initScheduler($('#sched', panelEl));
-    panelEl.classList.remove('swap'); void panelEl.offsetWidth; panelEl.classList.add('swap');
-    if (focus) $('#tab-' + i).focus();
-  }
-  tabsEl.addEventListener('click', e => { const t = e.target.closest('.tab'); if (t) showProject(+t.dataset.i); });
-  tabsEl.addEventListener('keydown', e => {
-    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
-    const cur = +document.activeElement.dataset.i;
-    let next;
-    if (e.key in step) next = (cur + step[e.key] + N) % N;
-    else if (e.key === 'Home') next = 0;
-    else if (e.key === 'End') next = N - 1;
-    else return;
-    e.preventDefault(); showProject(next, true);
-  });
-  showProject(0);
-
-  /* ---------- Skills ---------- */
-  const [primary, ...others] = D.skills;
-  $('#skills-body').innerHTML = `
-    <h3 class="grp">${esc(primary.group)}</h3>
-    <div class="tiles">${primary.items.map(i => `<div class="tile"><h4>${esc(i.name)}</h4><p>${esc(i.note)}</p></div>`).join('')}</div>
-    <div class="skill-cols">${others.map(g => `
-      <div>
-        <h3 class="grp">${esc(g.group)}</h3>
-        <ul class="skill-list">${g.items.map(i => `<li><b>${esc(i.name)}</b>${i.note ? `<span>${esc(i.note)}</span>` : ''}</li>`).join('')}</ul>
-      </div>`).join('')}
-    </div>`;
-
-  /* ---------- Experience + education ---------- */
-  const tlItem = (x, cls = '') => `
-    <li class="tl ${cls}">
-      <p class="tl-when">${esc(x.period)}</p>
-      <h3>${esc(x.role)}</h3>
-      <p class="tl-org">${esc(x.org)}</p>
-      <ul>${x.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
-    </li>`;
-  $('#timeline').innerHTML = D.experience.map(x => tlItem(x)).join('') + tlItem(D.education, 'edu');
-
-  /* ---------- Writing (optional) ---------- */
-  if (D.posts.length) {
-    $('#writing').hidden = false; $('#nav-writing').hidden = false;
-    $('#posts').innerHTML = D.posts.map(p => `
-      <a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">
-        <h3>${esc(p.title)}</h3>
-        ${p.summary ? `<p>${esc(p.summary)}</p>` : ''}
-        ${p.date ? `<small>${esc(p.date)}</small>` : ''}
-      </a>`).join('');
-  }
-
-  /* ---------- Command menu (Ctrl/Cmd + K) ---------- */
-  const dlg = $('#palette'), palInput = $('#pal-input'), palList = $('#pal-list'), palBtn = $('#pal-btn');
-  if (typeof dlg.showModal !== 'function') { palBtn.hidden = true; }
-  else {
-    $('#pal-kbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform || '') ? '⌘ K' : 'Ctrl K';
-    let items = [], idx = 0;
-    const commands = () => {
-      const go = (id, label) => ({ group: 'Go to', label, run: () => jump(id) });
-      const c = [go('work', 'Work'), ...(gh.shown ? [go('github', 'GitHub activity')] : []), go('skills', 'Skills'), go('experience', 'Experience'),
-        ...(D.posts.length ? [go('writing', 'Writing')] : []), go('contact', 'Contact')];
-      D.projects.forEach((p, i) => c.push({ group: 'Projects', label: p.title, kw: p.stack.join(' ') + ' ' + p.kind, run: () => { showProject(i); jump('work'); } }));
-      c.push(
-        { group: 'Actions', label: 'Switch between light and dark theme', kw: 'theme dark light mode', run: toggleTheme },
-        { group: 'Actions', label: 'Copy email address', kw: 'mail contact', run: copyEmail },
-        { group: 'Actions', label: 'Open GitHub profile', kw: 'code repositories', run: () => window.open(D.github, '_blank', 'noopener') },
-        { group: 'Actions', label: 'Open LinkedIn profile', kw: 'network', run: () => window.open(D.linkedin, '_blank', 'noopener') });
-      if (D.resume) c.push({ group: 'Actions', label: 'Download resume', kw: 'cv', run: () => { const a = document.createElement('a'); a.href = D.resume; a.download = ''; a.click(); } });
-      c.push({ group: 'Actions', label: 'Back to top', run: () => jump('top') });
-      return c;
-    };
-    function renderPal() {
-      const q = palInput.value.trim().toLowerCase();
-      items = commands().filter(c => !q || (c.label + ' ' + c.group + ' ' + (c.kw || '')).toLowerCase().includes(q));
-      idx = 0;
-      if (!items.length) {
-        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "theme", or "email".</li>';
-        palInput.removeAttribute('aria-activedescendant'); return;
-      }
-      let last = '', html = '';
-      items.forEach((c, i) => {
-        if (c.group !== last) { html += `<li class="pal-group" role="presentation">${esc(c.group)}</li>`; last = c.group; }
-        html += `<li class="pal-item" role="option" id="pal-${i}" data-i="${i}" aria-selected="${i === 0}">${esc(c.label)}</li>`;
-      });
-      palList.innerHTML = html;
-      palInput.setAttribute('aria-activedescendant', 'pal-0');
-    }
-    function movePal(d) {
-      if (!items.length) return;
-      idx = (idx + d + items.length) % items.length;
-      $$('.pal-item', palList).forEach((el, i) => el.setAttribute('aria-selected', String(i === idx)));
-      palInput.setAttribute('aria-activedescendant', 'pal-' + idx);
-      $('#pal-' + idx).scrollIntoView({ block: 'nearest' });
-    }
-    function runPal(i) { const c = items[i]; if (!c) return; dlg.close(); setTimeout(c.run, 0); }
-    function openPal() { palInput.value = ''; renderPal(); dlg.showModal(); palInput.focus(); }
-    palBtn.addEventListener('click', openPal);
-    palInput.addEventListener('input', renderPal);
-    palInput.addEventListener('keydown', e => {
-      if (e.key === 'ArrowDown') { e.preventDefault(); movePal(1); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); movePal(-1); }
-      else if (e.key === 'Enter') { e.preventDefault(); runPal(idx); }
-    });
-    palList.addEventListener('click', e => { const li = e.target.closest('.pal-item'); if (li) runPal(+li.dataset.i); });
-    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-    addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); dlg.open ? dlg.close() : openPal(); }
-    });
-  }
-
-  /* ---------- Scroll: progress bar + active nav link ---------- */
-  const bar = $('.progress i');
-  const onScroll = () => {
-    const h = document.documentElement, max = h.scrollHeight - innerHeight;
-    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, h.scrollTop / max) : 0})`;
-  };
-  addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll);
-  onScroll();
-
-  const navLinks = $$('.nav-links a');
-  if ('IntersectionObserver' in window) {
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(a => a.removeAttribute('aria-current'));
-        const a = navLinks.find(l => l.getAttribute('href') === '#' + en.target.id);
-        if (a) a.setAttribute('aria-current', 'true');
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    $$('main section[id]').forEach(s => spy.observe(s));
-  }
-
-  $('#year').textContent = new Date().getFullYear();
-})();
-</script>
-</body>
-</html>
+  transition: border-color .2s, box
