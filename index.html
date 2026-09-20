@@ -4,19 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Soniya Pantha — .NET Fullstack Developer</title>
-<meta name="description" content="Soniya Pantha is a .NET developer building APIs and web apps with ASP.NET Core, C#, SQL Server and React. Open to fullstack roles and freelance work.">
-<link rel="canonical" href="https://soniyapantha.github.io/">
+<meta name="description" content="Soniya Pantha is a mid-level .NET developer building APIs and web apps with ASP.NET Core, C#, SQL Server and React. Open to fullstack roles and freelance work.">
 <meta name="theme-color" content="#F5F4FA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F0C24" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://soniyapantha.github.io/">
 <meta property="og:title" content="Soniya Pantha — .NET Fullstack Developer">
 <meta property="og:description" content="ASP.NET Core, C#, SQL Server and React. Selected projects, live GitHub activity, skills and experience.">
-<meta property="og:image" content="https://soniyapantha.github.io/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Soniya Pantha — .NET Fullstack Developer">
-<meta name="twitter:description" content="ASP.NET Core, C#, SQL Server and React.">
-<meta name="twitter:image" content="https://soniyapantha.github.io/og.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23512BD4%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial,sans-serif%27 font-size=%2728%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3ESP%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,14 +32,9 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Soniya Pantha",
-  "jobTitle": ".NET Fullstack Developer",
-  "email": "mailto:soniya.pantha.dev@gmail.com",
-  "url": "https://soniyapantha.github.io/",
-  "sameAs": [
-    "https://github.com/soniyapantha",
-    "https://www.linkedin.com/in/soniyapantha"
-  ],
-  "knowsAbout": ["C#", "ASP.NET Core", "SQL Server", "React", "REST APIs", "Entity Framework Core"]
+  "jobTitle": "Mid-Level .NET Developer",
+  "email": "mailto:sharmaunisha666@gmail.com",
+  "sameAs": ["https://github.com/soniyapantha", "https://www.linkedin.com/in/soniyapantha"]
 }
 </script>
 
@@ -60,7 +49,6 @@
   --on-accent: #FFFFFF;
   --accent-soft: #ECE8FC;
   --ok: #0F7A4A;
-  --err: #C0392B;
   --code-bg: #1A1443;
   --code-ink: #E6E2FF;
   --code-dim: #9A94CC;
@@ -82,7 +70,6 @@
   --on-accent: #120E30;
   --accent-soft: #251F5A;
   --ok: #5EE0A0;
-  --err: #FF8A80;
   --code-bg: #0A0820;
   --code-line: #262060;
   --shadow: 0 2px 4px rgba(0,0,0,.4), 0 28px 56px -24px rgba(0,0,0,.75);
@@ -344,6 +331,14 @@ figure { margin: 0; }
 .tl-org { color: var(--accent); font-weight: 600; margin: 4px 0 12px; }
 .tl ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 62ch; display: grid; gap: 6px; }
 
+.posts { display: grid; gap: 0; max-width: 780px; }
+.post { display: block; padding: 22px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.post:last-child { border-bottom: 1px solid var(--line); }
+.post h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.post:hover h3 { color: var(--accent); }
+.post p { color: var(--muted); max-width: 62ch; }
+.post small { display: block; margin-top: 8px; color: var(--muted); }
+
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 16px; text-wrap: balance; }
 .contact .lede { margin-bottom: 0; }
@@ -358,7 +353,8 @@ figure { margin: 0; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent); }
 .form .btn { justify-self: start; }
 .form-msg { min-height: 1.5em; font-size: .92rem; color: var(--muted); }
-.form-msg[data-state="error"] { color: var(--err); font-weight: 600; }
+.form-msg[data-state="error"] { color: #C0392B; font-weight: 600; }
+:root[data-theme="dark"] .form-msg[data-state="error"] { color: #FF8A80; }
 
 .links { list-style: none; margin: 0; padding: 0; }
 .link-row { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
@@ -398,6 +394,18 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .pal-empty { padding: 18px 12px; color: var(--muted); }
 .pal-foot { margin: 0; padding: 10px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed; right: 22px; bottom: 22px; z-index: 75;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #25D366; color: #fff;
+  box-shadow: 0 4px 14px rgba(37,211,102,.45), 0 8px 24px rgba(0,0,0,.3);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.wa-float:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 20px rgba(37,211,102,.6), 0 12px 28px rgba(0,0,0,.4); }
+.wa-float svg { display: block; }
+
 @media (max-width: 900px) {
   .hero-grid, .contact-grid { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr; }
@@ -429,6 +437,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a href="#github" id="nav-github" hidden>GitHub</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#writing" id="nav-writing" hidden>Writing</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
@@ -451,7 +460,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap hero-grid">
       <div>
         <h1>Soniya Pantha builds .NET backends and the web apps in front of them.</h1>
-        <p class="lede">.NET developer with production experience in ASP.NET Core, C#, and SQL Server, plus full-stack project work in PHP, Python, and React.</p>
+        <p class="lede">Mid-level .NET developer with two years of production experience in ASP.NET Core, C#, and SQL Server, plus full-stack project work in PHP, Python, and React.</p>
         <div class="hero-cta">
           <a href="#work" class="btn btn-primary">View projects</a>
           <a href="#contact" class="btn btn-line">Contact me</a>
@@ -475,7 +484,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </form>
         <div class="res">
           <div class="res-meta" id="res-meta"></div>
-          <pre id="res-body" aria-live="polite" aria-busy="false"></pre>
+          <pre id="res-body" aria-live="polite"></pre>
         </div>
       </div>
     </div>
@@ -522,9 +531,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <div class="section-head">
         <h2>Experience</h2>
-        <p>Where I've worked, and the coursework behind it.</p>
+        <p>Two years in production, plus the coursework and projects behind it.</p>
       </div>
       <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <section class="section" id="writing" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Writing</h2>
+        <p>Notes on .NET, debugging, and lessons from the job.</p>
+      </div>
+      <div class="posts" id="posts"></div>
     </div>
   </section>
 
@@ -532,16 +551,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap contact-grid">
       <div>
         <h2>Let's build something reliable together.</h2>
-        <p class="lede">Open to fullstack roles and freelance work. I usually reply within a day.</p>
+        <p class="lede">Open to fullstack roles and freelance work. Chat me on WhatsApp — I usually reply within a day.</p>
         <form class="form" id="contact-form" novalidate>
           <label class="field">Your name
-            <input type="text" name="sender" autocomplete="name" required>
+            <input type="text" name="sender" autocomplete="name">
           </label>
           <label class="field">Message
-            <textarea name="message" rows="4" required></textarea>
+            <textarea name="message" rows="4"></textarea>
           </label>
-          <button class="btn btn-primary" type="submit">Open email draft</button>
-          <p class="form-msg" id="form-msg" role="status">Opens your email app with this message ready to send.</p>
+          <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
+          <p class="form-msg" id="form-msg" role="status">Opens WhatsApp with your message ready to send.</p>
         </form>
       </div>
       <ul class="links" id="contact-links"></ul>
@@ -565,17 +584,33 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p class="pal-foot">Use the arrow keys to move, Enter to select, Esc to close.</p>
 </dialog>
 
+
+<a href="#" id="wa-float" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
+
 const DATA = {
   name: 'Soniya Pantha',
-  role: '.NET Fullstack Developer',
+  role: 'Mid-Level .NET Developer',
+  years: 2,
   headlineStack: ['C#', 'ASP.NET Core', 'SQL Server', 'React'],
   mentoring: 'interns and junior developers',
 
-  email: 'soniya.pantha.dev@gmail.com',
+  /* ═══════════════════════════════════════════════════════
+     EDIT THIS → your WhatsApp number
+     Format: country code + number, DIGITS ONLY, no +, no spaces
+     Example for Nepal (+977): '9779812345678'
+     ═══════════════════════════════════════════════════════ */
+  whatsapp: '9779812345678',
+
+  email: 'sharmaunisha666@gmail.com',
   github: 'https://github.com/soniyapantha',
   linkedin: 'https://www.linkedin.com/in/soniyapantha',
-  resume: 'resume.pdf',
+  resume: '',
 
   projects: [
     {
@@ -589,7 +624,7 @@ const DATA = {
       ],
       stack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
       demo: '',
-      repo: 'https://github.com/soniyapantha/thrift-book-store',
+      repo: '',
       snippet: {
         file: 'schema.sql', lang: 'sql',
         code: `CREATE TABLE listings (
@@ -613,7 +648,7 @@ const DATA = {
       ],
       stack: ['C#', '.NET'],
       demo: '',
-      repo: 'https://github.com/soniyapantha/priority-task-scheduler',
+      repo: '',
       widget: 'scheduler',
       snippet: {
         file: 'Scheduler.cs', lang: 'cs',
@@ -628,7 +663,7 @@ while (queue.TryDequeue(out var next, out _))
       }
     },
     {
-      title: 'Student Performance Prediction',
+      title: 'Student Performance Prediction System',
       kind: 'Machine learning web app',
       description: 'A web app that predicts a student\u2019s academic performance from historical data, served through a Flask backend.',
       built: [
@@ -638,7 +673,7 @@ while (queue.TryDequeue(out var next, out _))
       ],
       stack: ['Python', 'Flask', 'scikit-learn', 'HTML/CSS'],
       demo: '',
-      repo: 'https://github.com/soniyapantha/student-performance-prediction',
+      repo: '',
       snippet: {
         file: 'app.py', lang: 'py',
         code: `@app.route("/predict", methods=["POST"])
@@ -653,32 +688,31 @@ def predict():
   skills: [
     { group: 'Primary stack', key: 'primary', items: [
       { name: 'C# / .NET', note: 'ASP.NET Core, Web API, MVC' },
-      { name: 'EF Core', note: 'Code-first, migrations, LINQ' },
+      { name: 'EF Core', note: 'Entity Framework Core: code-first, migrations' },
       { name: 'SQL Server / MySQL', short: 'SQL Server', note: 'Schema design and queries' },
-      { name: 'REST APIs', note: 'Design, versioning, integration' }
+      { name: 'REST APIs', note: 'Design and integration' }
     ]},
     { group: 'Also worked with', key: 'also', items: [
       { name: 'PHP', note: 'Academic full-stack project' },
       { name: 'Python / Flask', note: 'ML-integrated web app' },
-      { name: 'React / JavaScript', short: 'React', note: 'Component-based UIs' },
+      { name: 'React / JavaScript', short: 'React', note: '' },
       { name: 'HTML / CSS', note: 'Responsive layouts' }
     ]},
     { group: 'Tooling and practices', key: 'tooling', items: [
       { name: 'Git / GitHub', short: 'Git', note: 'Branching, PR workflows' },
       { name: 'Mentoring', note: 'Interns and junior developers' },
       { name: 'Azure', note: 'App Service, basic CI/CD' },
-      { name: 'Unit testing', note: 'xUnit, integration tests' }
+      { name: 'Unit testing', note: 'xUnit basics' }
     ]}
   ],
 
   experience: [
     {
       period: '2024 — Present',
-      role: '.NET Developer',
-      org: 'Software development team',
+      role: 'Mid-Level .NET Developer',
+      org: 'Software Development Team',
       points: [
         'Build and maintain ASP.NET Core services and REST APIs used in production.',
-        'Model data with EF Core and tune SQL Server queries for reporting endpoints.',
         'Mentor interns and junior developers on code quality, debugging, and .NET fundamentals.'
       ]
     }
@@ -736,13 +770,25 @@ def predict():
   /* ---------- Resume + contact links ---------- */
   if (D.resume) { const r = $('#resume-link'); r.href = D.resume; r.hidden = false; }
 
+  const waMessage = encodeURIComponent("Hi Soniya! I found your portfolio and wanted to reach out.");
+  const waLink = `https://wa.me/${D.whatsapp}?text=${waMessage}`;
+
   $('#contact-links').innerHTML = `
+    <li class="link-row">
+      <a class="link-main" href="${waLink}" target="_blank" rel="noopener"><span>WhatsApp</span><span>Chat with me</span></a>
+    </li>
     <li class="link-row">
       <a class="link-main" href="mailto:${esc(D.email)}"><span>Email</span><span>${esc(D.email)}</span></a>
       <button class="btn btn-line btn-sm" type="button" id="copy-email">Copy</button>
     </li>
     <li class="link-row"><a class="link-main" href="${esc(D.github)}" target="_blank" rel="noopener"><span>GitHub</span><span>${esc(pretty(D.github))}</span></a></li>
     <li class="link-row"><a class="link-main" href="${esc(D.linkedin)}" target="_blank" rel="noopener"><span>LinkedIn</span><span>${esc(pretty(D.linkedin))}</span></a></li>`;
+
+  /* ---------- Floating WhatsApp button ---------- */
+  (function () {
+    const btn = document.getElementById('wa-float');
+    if (btn && D.whatsapp) btn.href = waLink;
+  })();
 
   /* ---------- Toast + clipboard ---------- */
   const toast = $('#toast');
@@ -766,22 +812,30 @@ def predict():
   }
   $('#copy-email').addEventListener('click', copyEmail);
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact form → WhatsApp ---------- */
   const form = $('#contact-form'), formMsg = $('#form-msg');
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const nameEl = form.elements.namedItem('sender'), msgEl = form.elements.namedItem('message');
-    const name = nameEl.value.trim(), msg = msgEl.value.trim();
+    const nameEl = form.elements.namedItem('sender');
+    const msgEl = form.elements.namedItem('message');
+    const name = nameEl.value.trim();
+    const msg = msgEl.value.trim();
+
     if (!name || !msg) {
       formMsg.dataset.state = 'error';
-      formMsg.textContent = !name ? 'Enter your name so I know who to reply to.' : 'Write a short message before opening the draft.';
+      formMsg.textContent = !name
+        ? 'Enter your name so I know who I am talking to.'
+        : 'Write a short message before opening WhatsApp.';
       (!name ? nameEl : msgEl).focus();
       return;
     }
+
     delete formMsg.dataset.state;
-    formMsg.textContent = "Your email app should open with the draft. If it doesn't, copy my address above and write to me directly.";
-    const subject = `Portfolio enquiry from ${name}`;
-    location.href = `mailto:${D.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg + '\n\n' + name)}`;
+    formMsg.textContent = 'Opening WhatsApp…';
+
+    const text = `Hi Soniya! I'm ${name}.\n\n${msg}`;
+    const url = `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
   });
 
   /* ---------- Tiny syntax highlighter ---------- */
@@ -793,17 +847,15 @@ def predict():
   const highlight = (code, lang) => escText(code).replace(RULES[lang], (m, c, s, k) =>
     `<span class="${c ? 'c-c' : s ? 'c-s' : k ? 'c-k' : 'c-n'}">${m}</span>`);
 
-  /* ---------- GitHub (lazy, cached 10 min) ---------- */
+  /* ---------- GitHub (lazy) ---------- */
   const gh = { user: ((D.github || '').match(/github\.com\/([^/?#]+)/) || [])[1], promise: null, shown: false };
   function loadGitHub() {
     if (gh.promise) return gh.promise;
     gh.promise = (async () => {
       if (!gh.user) throw new Error('No GitHub username');
       const key = 'gh:' + gh.user;
-      const TTL = 6e5; // 10 minutes
-      try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < TTL) return c.v; } catch (e) {}
-      const get = url => fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
-        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+      try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < 6e5) return c.v; } catch (e) {}
+      const get = url => fetch(url).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
       const [u, repos] = await Promise.all([
         get(`https://api.github.com/users/${gh.user}`),
         get(`https://api.github.com/users/${gh.user}/repos?per_page=100&sort=pushed`)
@@ -867,9 +919,9 @@ def predict():
     });
     if (reduceMotion) $$('#lang-bar i').forEach(i => { i.style.width = i.dataset.w + '%'; });
   }
-  loadGitHub().then(renderGitHub).catch(() => { /* section stays hidden */ });
+  loadGitHub().then(renderGitHub).catch(() => {});
 
-  /* ---------- Hero: interactive API explorer ---------- */
+  /* ---------- Hero API explorer ---------- */
   const inl = v => Array.isArray(v) ? '[' + v.map(inl).join(', ') + ']'
     : v && typeof v === 'object' ? '{ ' + Object.entries(v).map(([k, x]) => JSON.stringify(k) + ': ' + inl(x)).join(', ') + ' }'
     : JSON.stringify(v);
@@ -891,7 +943,7 @@ def predict():
   const STATUS = { 200: 'OK', 404: 'Not Found', 418: "I'm a Teapot", 503: 'Service Unavailable' };
   const ENDPOINTS = [
     { path: '/api/developer', desc: 'Who I am', build: async () => ({
-        name: D.name, role: D.role, stack: D.headlineStack, mentors: D.mentoring }) },
+        name: D.name, role: D.role, yearsExperience: D.years, stack: D.headlineStack, mentors: D.mentoring }) },
     { path: '/api/projects', desc: 'What I built', build: async () => ({
         total: D.projects.length, items: D.projects.map(p => p.title) }) },
     { path: '/api/skills', desc: 'What I use', build: async () =>
@@ -902,7 +954,7 @@ def predict():
           topLanguages: langStats(v.repos).slice(0, 3).map(l => l.name) };
       } },
     { path: '/api/availability', desc: 'Work with me', build: async () => ({
-        open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', email: D.email }) }
+        open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', whatsapp: 'available on request' }) }
   ];
   const normPath = raw => {
     let p = raw.trim().toLowerCase().replace(/^get\s+/, '');
@@ -951,9 +1003,9 @@ def predict():
   }
   epList.addEventListener('click', e => { const b = e.target.closest('.ep'); if (b) request(ENDPOINTS[+b.dataset.i].path); });
   $('#ep-form').addEventListener('submit', e => { e.preventDefault(); request(epInput.value); });
-  request('/api/developer');
+  setTimeout(() => request('/api/developer'), 350);
 
-  /* ---------- Work: project list + detail ---------- */
+  /* ---------- Projects ---------- */
   const tabsEl = $('#project-tabs'), panelEl = $('#project-panel');
   const N = D.projects.length;
   tabsEl.innerHTML = D.projects.map((p, i) => `
@@ -1095,19 +1147,31 @@ def predict():
     </li>`;
   $('#timeline').innerHTML = D.experience.map(x => tlItem(x)).join('') + tlItem(D.education, 'edu');
 
+  /* ---------- Writing (optional) ---------- */
+  if (D.posts.length) {
+    $('#writing').hidden = false; $('#nav-writing').hidden = false;
+    $('#posts').innerHTML = D.posts.map(p => `
+      <a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">
+        <h3>${esc(p.title)}</h3>
+        ${p.summary ? `<p>${esc(p.summary)}</p>` : ''}
+        ${p.date ? `<small>${esc(p.date)}</small>` : ''}
+      </a>`).join('');
+  }
+
   /* ---------- Command menu ---------- */
   const dlg = $('#palette'), palInput = $('#pal-input'), palList = $('#pal-list'), palBtn = $('#pal-btn');
-  const isMac = /Mac|iPhone|iPad/.test(navigator.userAgentData?.platform || navigator.platform || '');
   if (typeof dlg.showModal !== 'function') { palBtn.hidden = true; }
   else {
-    $('#pal-kbd').textContent = isMac ? '⌘ K' : 'Ctrl K';
+    $('#pal-kbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform || '') ? '⌘ K' : 'Ctrl K';
     let items = [], idx = 0;
     const commands = () => {
       const go = (id, label) => ({ group: 'Go to', label, run: () => jump(id) });
-      const c = [go('work', 'Work'), ...(gh.shown ? [go('github', 'GitHub activity')] : []), go('skills', 'Skills'), go('experience', 'Experience'), go('contact', 'Contact')];
+      const c = [go('work', 'Work'), ...(gh.shown ? [go('github', 'GitHub activity')] : []), go('skills', 'Skills'), go('experience', 'Experience'),
+        ...(D.posts.length ? [go('writing', 'Writing')] : []), go('contact', 'Contact')];
       D.projects.forEach((p, i) => c.push({ group: 'Projects', label: p.title, kw: p.stack.join(' ') + ' ' + p.kind, run: () => { showProject(i); jump('work'); } }));
       c.push(
         { group: 'Actions', label: 'Switch between light and dark theme', kw: 'theme dark light mode', run: toggleTheme },
+        { group: 'Actions', label: 'Open WhatsApp chat', kw: 'whatsapp chat message', run: () => window.open(waLink, '_blank', 'noopener') },
         { group: 'Actions', label: 'Copy email address', kw: 'mail contact', run: copyEmail },
         { group: 'Actions', label: 'Open GitHub profile', kw: 'code repositories', run: () => window.open(D.github, '_blank', 'noopener') },
         { group: 'Actions', label: 'Open LinkedIn profile', kw: 'network', run: () => window.open(D.linkedin, '_blank', 'noopener') });
@@ -1120,7 +1184,7 @@ def predict():
       items = commands().filter(c => !q || (c.label + ' ' + c.group + ' ' + (c.kw || '')).toLowerCase().includes(q));
       idx = 0;
       if (!items.length) {
-        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "theme", or "email".</li>';
+        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "theme", or "whatsapp".</li>';
         palInput.removeAttribute('aria-activedescendant'); return;
       }
       let last = '', html = '';
