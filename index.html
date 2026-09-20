@@ -2,364 +2,898 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Soniya Pantha — .NET Fullstack Developer</title>
+<meta name="description" content="Soniya Pantha is a mid-level .NET developer building APIs and web apps with ASP.NET Core, C#, SQL Server and React. Open to fullstack roles and freelance work.">
+<meta name="theme-color" content="#F5F4FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0C24" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soniya Pantha — .NET Fullstack Developer">
+<meta property="og:description" content="ASP.NET Core, C#, SQL Server and React. Selected projects, skills and experience.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23512BD4%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial,sans-serif%27 font-size=%2728%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3EAS%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Apply the saved / system theme before first paint to avoid a flash -->
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  } catch (e) {}
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Soniya Pantha",
+  "jobTitle": "Mid-Level .NET Developer",
+  "email": "mailto:sharmaunisha666@gmail.com",
+  "sameAs": ["https://github.com/soniyapantha", "https://www.linkedin.com/in/soniyapantha"]
+}
+</script>
+
 <style>
-  :root{
-    --bg: #12141C;
-    --bg-alt: #171A24;
-    --card: #1B1E2A;
-    --line: #2A2E3D;
-    --text: #F1F2F6;
-    --muted: #8B90A3;
-    --accent: #E8B64C;
-    --accent-dim: #8A6F2E;
+/* =========================================================
+   Tokens
+   ========================================================= */
+:root {
+  --bg: #F5F4FA;
+  --surface: #FFFFFF;
+  --ink: #17133A;
+  --muted: #5A5680;
+  --line: #DEDBEE;
+  --accent: #512BD4;          /* the .NET purple */
+  --on-accent: #FFFFFF;
+  --accent-soft: #ECE8FC;
+  --ok: #0F7A4A;
+
+  /* code / API panel (dark in both themes) */
+  --code-bg: #1A1443;
+  --code-ink: #E6E2FF;
+  --code-dim: #9A94CC;
+  --code-key: #BBA8FF;
+  --code-str: #7FE3B4;
+  --code-num: #FFC978;
+  --code-lit: #FF9DB5;
+  --code-line: #2E2766;
+
+  --shadow: 0 2px 4px rgba(23,19,58,.06), 0 24px 48px -20px rgba(23,19,58,.35);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0F0C24;
+  --surface: #171338;
+  --ink: #ECEAFB;
+  --muted: #A5A2C9;
+  --line: #2B2661;
+  --accent: #A78BFA;
+  --on-accent: #120E30;
+  --accent-soft: #251F5A;
+  --ok: #5EE0A0;
+  --code-bg: #0A0820;
+  --code-line: #262060;
+  --shadow: 0 2px 4px rgba(0,0,0,.4), 0 28px 56px -24px rgba(0,0,0,.75);
+  color-scheme: dark;
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.65 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 {
+  font-family: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+p { margin: 0; }
+a { color: inherit; }
+figure { margin: 0; }
+::selection { background: var(--accent); color: var(--on-accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: min(1120px, 100% - 48px); margin-inline: auto; }
+.skip {
+  position: absolute; left: -999px; top: 8px; z-index: 100;
+  background: var(--accent); color: var(--on-accent);
+  padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none;
+}
+.skip:focus { left: 8px; }
+
+/* Reading progress */
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; }
+.progress i { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 22px; border-radius: 999px; border: 1.5px solid transparent;
+  font: 600 .95rem/1 'Instrument Sans', system-ui, sans-serif;
+  text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, filter .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.btn-line { border-color: var(--line); color: var(--ink); background: transparent; }
+.btn-line:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 9px 16px; font-size: .88rem; }
+
+.icon-btn {
+  width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--ink);
+  transition: border-color .2s ease;
+}
+.icon-btn:hover { border-color: var(--accent); }
+.i-sun { display: none; }
+:root[data-theme="dark"] .i-sun { display: block; }
+:root[data-theme="dark"] .i-moon { display: none; }
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; height: 66px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 1.05rem; }
+.brand-mark {
+  width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center;
+  background: var(--accent); color: var(--on-accent); font-size: .8rem; letter-spacing: 0;
+}
+.nav-links { display: flex; gap: 4px; margin-left: 28px; }
+.nav-links a { padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem; transition: color .2s, background .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="true"] { color: var(--ink); background: var(--accent-soft); }
+.nav-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.menu-btn { display: none; }
+
+@media (max-width: 760px) {
+  .menu-btn { display: grid; }
+  .nav-links { display: none; margin: 0; }
+  .nav[data-open="true"] .nav-links {
+    display: flex; flex-direction: column; gap: 2px;
+    position: absolute; top: 100%; left: 0; right: 0;
+    padding: 12px 24px 18px; background: var(--bg); border-bottom: 1px solid var(--line);
   }
-  :root:not([data-theme="light"]) { color-scheme: dark; }
-  * { box-sizing: border-box; margin:0; padding:0; }
-  html { scroll-behavior: smooth; }
-  body{
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection{ background: var(--accent); color: #12141C; }
+  .nav-links a { padding: 12px; font-size: 1.05rem; }
+}
+@media (max-width: 420px) { .resume-link { display: none; } }
 
-  h1,h2,h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero { padding: clamp(48px, 8vw, 96px) 0 clamp(56px, 8vw, 96px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); margin-bottom: 22px; text-wrap: balance; }
+.lede { font-size: 1.12rem; color: var(--muted); max-width: 52ch; margin-bottom: 32px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.availability { display: inline-flex; align-items: center; gap: 12px; color: var(--muted); font-size: .95rem; }
+.availability i { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent); }
 
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display:block; }
+/* API explorer (the one memorable element) */
+.api {
+  min-width: 0;
+  background: var(--code-bg); color: var(--code-ink);
+  border: 1px solid var(--code-line); border-radius: 18px; box-shadow: var(--shadow);
+  overflow: hidden;
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: .78rem;
+}
+.api :focus-visible { outline-color: var(--code-key); }
+.api-head { padding: 16px 18px 14px; border-bottom: 1px solid var(--code-line); }
+.api-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.api-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+.api-ver { font: 500 .68rem/1 'JetBrains Mono', monospace; color: var(--code-key); border: 1px solid var(--code-line); border-radius: 5px; padding: 3px 6px; }
+.api-server { color: var(--code-dim); font-size: .72rem; }
+.api-hint { color: var(--code-dim); font-size: .74rem; }
+.ep {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 12px 18px; background: transparent; border: 0; border-left: 3px solid transparent;
+  color: var(--code-ink); font: inherit; text-align: left; cursor: pointer;
+  transition: background .15s ease;
+}
+.ep + .ep { border-top: 1px solid var(--code-line); }
+.ep:hover { background: rgba(255,255,255,.04); }
+.ep[aria-pressed="true"] { background: rgba(187,168,255,.10); border-left-color: var(--code-key); }
+.method { font-size: .66rem; font-weight: 500; letter-spacing: .04em; padding: 3px 8px; border-radius: 5px; background: #8DB8FF; color: #0A0820; }
+.ep-desc { margin-left: auto; color: var(--code-dim); font-size: .72rem; }
+.res { padding: 14px 18px 18px; border-top: 1px solid var(--code-line); }
+.res-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: .72rem; color: var(--code-dim); margin-bottom: 10px; min-height: 1.2em; }
+.res-meta .ok { color: #6FE3AE; font-weight: 500; }
+.res pre { margin: 0; min-height: calc(8 * 1.7em); line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
+.j-k { color: var(--code-key); }
+.j-s { color: var(--code-str); }
+.j-n { color: var(--code-num); }
+.j-l { color: var(--code-lit); }
+.caret { display: inline-block; width: .55em; height: 1.1em; background: var(--code-key); vertical-align: -.2em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (max-width: 520px) { .ep-desc, .api-server { display: none; } }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-  @media (max-width: 640px){ .wrap { padding: 0 20px; } }
+/* =========================================================
+   Sections
+   ========================================================= */
+.section { padding: clamp(64px, 9vw, 112px) 0; border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 10px; margin-bottom: 40px; max-width: 60ch; }
+.section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
+.section-head p { color: var(--muted); font-size: 1.05rem; }
+.noscript { padding: 16px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 
-  /* ---------- NAV ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(18,20,28,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .wrap { display:flex; align-items:center; justify-content:space-between; height: 64px; }
-  .nav-mark { font-family:'Space Grotesk'; font-weight:700; font-size: 1.05rem; }
-  .nav-mark span { color: var(--accent); }
-  .nav-links { display:flex; gap: 28px; font-size: 0.9rem; color: var(--muted); }
-  .nav-links a:hover { color: var(--text); }
-  .nav-links { display:none; }
-  @media (min-width: 720px){ .nav-links { display:flex; } }
-  .resume-btn {
-    border: 1px solid var(--line); padding: 8px 16px; border-radius: 6px;
-    font-size: 0.85rem; color: var(--text); transition: border-color .2s, color .2s;
-  }
-  .resume-btn:hover { border-color: var(--accent); color: var(--accent); }
+/* Work: list + detail */
+.work { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; align-items: start; }
+.work-list { display: grid; gap: 8px; position: sticky; top: 92px; }
+.tab {
+  text-align: left; padding: 16px 18px; border-radius: 12px; border: 1px solid transparent;
+  background: transparent; color: var(--muted); cursor: pointer; font: inherit; font-size: .92rem;
+  transition: background .2s ease, border-color .2s ease;
+}
+.tab strong { display: block; font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.08rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.tab:hover { background: var(--accent-soft); }
+.tab[aria-selected="true"] { background: var(--surface); border-color: var(--line); box-shadow: inset 3px 0 0 var(--accent); }
 
-  /* ---------- HERO ---------- */
-  header.hero { padding: 100px 0 90px; }
-  .hero-grid { display:grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
-  @media (max-width: 860px){ .hero-grid { grid-template-columns: 1fr; } }
+.detail { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 3vw, 38px); min-width: 0; }
+.detail h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-bottom: 12px; }
+.detail-desc { color: var(--muted); font-size: 1.05rem; max-width: 62ch; margin-bottom: 26px; }
+.detail h4 { font: 600 .95rem/1.3 'Instrument Sans', sans-serif; margin: 0 0 10px; }
+.built { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 8px; max-width: 64ch; }
+.built li { position: relative; padding-left: 24px; }
+.built li::before { content: ''; position: absolute; left: 0; top: .78em; width: 12px; height: 2px; background: var(--accent); border-radius: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; font-size: .85rem; color: var(--muted); background: var(--bg); }
+.detail-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.code { margin-top: 26px; border-radius: 12px; background: var(--code-bg); border: 1px solid var(--code-line); overflow: hidden; color: var(--code-ink); font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; }
+.code-head { display: flex; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--code-line); color: var(--code-dim); font-size: .74rem; }
+.code pre { margin: 0; padding: 16px; overflow-x: auto; line-height: 1.7; font: inherit; line-height: 1.7; }
+.c-c { color: var(--code-dim); font-style: italic; }
+.c-k { color: var(--code-key); }
+.c-s { color: var(--code-str); }
+.c-n { color: var(--code-num); }
+@keyframes swap { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.swap { animation: swap .28s ease-out; }
 
-  .eyebrow-role { color: var(--accent); font-size: 0.95rem; margin-bottom: 18px; }
-  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.08; margin-bottom: 22px; }
-  .hero p.lede { color: var(--muted); font-size: 1.08rem; max-width: 46ch; margin-bottom: 32px; }
-  .hero-cta { display:flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display:inline-flex; align-items:center; gap:8px;
-    padding: 13px 22px; border-radius: 6px; font-size: 0.92rem; font-weight: 500;
-    transition: transform .15s ease, background .2s ease, border-color .2s ease;
-  }
-  .btn-primary { background: var(--accent); color: #12141C; }
-  .btn-primary:hover { transform: translateY(-2px); }
-  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* Skills */
+.grp { font: 600 1rem/1.3 'Instrument Sans', sans-serif; letter-spacing: 0; color: var(--muted); margin-bottom: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 48px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.tile h4 { font: 700 1.2rem/1.2 'Bricolage Grotesque', sans-serif; letter-spacing: -.01em; margin: 0 0 8px; }
+.tile p { color: var(--muted); font-size: .93rem; }
+.skill-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+.skill-list { list-style: none; margin: 0; padding: 0; }
+.skill-list li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+.skill-list li:last-child { border-bottom: 1px solid var(--line); }
+.skill-list b { font-weight: 600; }
+.skill-list span { color: var(--muted); font-size: .92rem; text-align: right; }
 
-  /* terminal card */
-  .terminal {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
-  }
-  .terminal-bar { display:flex; gap:6px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
-  .dot { width:10px; height:10px; border-radius:50%; background: #3a3f52; }
-  .terminal-body { padding: 22px 20px; font-family:'JetBrains Mono', monospace; font-size: 0.82rem; color: #B7BBCB; }
-  .terminal-body .k { color: #7EC8E3; }
-  .terminal-body .s { color: var(--accent); }
-  .terminal-body .c { color: #6B7085; }
-  .terminal-body div { min-height: 1.5em; }
-  .cursor { display:inline-block; width:7px; height:1em; background: var(--accent); vertical-align: -2px; animation: blink 1s step-start infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
+/* Experience */
+.timeline { list-style: none; margin: 0; padding: 0 0 0 30px; border-left: 2px solid var(--line); max-width: 780px; }
+.tl { position: relative; padding-bottom: 44px; }
+.tl:last-child { padding-bottom: 0; }
+.tl::before { content: ''; position: absolute; left: -38px; top: .5em; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-sizing: content-box; margin: -3px; }
+.tl.edu::before { background: var(--bg); border-color: var(--accent); }
+.tl-when { color: var(--muted); font-size: .9rem; margin-bottom: 4px; }
+.tl h3 { font-size: 1.35rem; }
+.tl-org { color: var(--accent); font-weight: 600; margin: 4px 0 12px; }
+.tl ul { margin: 0; padding-left: 20px; color: var(--muted); max-width: 62ch; display: grid; gap: 6px; }
 
-  /* ---------- SECTION SHELL ---------- */
-  section { padding: 84px 0; border-top: 1px solid var(--line); }
-  .section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 44px; gap: 20px; flex-wrap: wrap; }
-  .section-head h2 { font-size: 1.7rem; }
-  .section-head .count { color: var(--muted); font-size: 0.85rem; }
+/* Writing */
+.posts { display: grid; gap: 0; max-width: 780px; }
+.post { display: block; padding: 22px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.post:last-child { border-bottom: 1px solid var(--line); }
+.post h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.post:hover h3 { color: var(--accent); }
+.post p { color: var(--muted); max-width: 62ch; }
+.post small { display: block; margin-top: 8px; color: var(--muted); }
 
-  /* ---------- PROJECTS (row list, not cards) ---------- */
-  .project {
-    display:grid; grid-template-columns: 90px 1fr auto; gap: 24px; align-items: start;
-    padding: 30px 0; border-bottom: 1px solid var(--line);
-    transition: background .2s ease;
-  }
-  .project:first-child { padding-top: 0; }
-  .project:hover { background: linear-gradient(90deg, rgba(232,182,76,0.04), transparent); }
-  .project .idx { font-family:'JetBrains Mono', monospace; color: var(--accent-dim); font-size: 0.85rem; padding-top: 4px; }
-  .project h3 { font-size: 1.25rem; margin-bottom: 8px; }
-  .project p { color: var(--muted); font-size: 0.95rem; max-width: 58ch; margin-bottom: 14px; }
-  .stack { display:flex; flex-wrap:wrap; gap: 8px; }
-  .stack span {
-    font-family:'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted);
-    border: 1px solid var(--line); padding: 4px 9px; border-radius: 4px;
-  }
-  .project-links { display:flex; flex-direction:column; gap: 10px; align-items:flex-end; font-size: 0.85rem; }
-  .project-links a { color: var(--text); border-bottom: 1px solid var(--line); padding-bottom: 2px; white-space:nowrap; }
-  .project-links a:hover { color: var(--accent); border-color: var(--accent); }
-  @media (max-width: 640px){
-    .project { grid-template-columns: 40px 1fr; }
-    .project-links { grid-column: 1 / -1; flex-direction:row; margin-top: 10px; gap: 18px; }
-  }
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 16px; text-wrap: balance; }
+.contact .lede { margin-bottom: 0; }
+.form { display: grid; gap: 14px; margin-top: 32px; max-width: 520px; }
+.field { display: grid; gap: 6px; font-weight: 600; font-size: .9rem; }
+.field input, .field textarea {
+  width: 100%; font: 400 1rem/1.5 'Instrument Sans', system-ui, sans-serif; color: var(--ink);
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent); }
+.form .btn { justify-self: start; }
+.form-msg { min-height: 1.5em; font-size: .92rem; color: var(--muted); }
+.form-msg[data-state="error"] { color: #C0392B; font-weight: 600; }
+:root[data-theme="dark"] .form-msg[data-state="error"] { color: #FF8A80; }
 
-  /* ---------- SKILLS ---------- */
-  .skills-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
-  @media (max-width: 720px){ .skills-grid { grid-template-columns: 1fr; } }
-  .skill-group h4 { font-size: 0.8rem; letter-spacing: 0.03em; color: var(--accent); margin-bottom: 16px; font-family:'JetBrains Mono', monospace; font-weight: 500; }
-  .skill-group ul { list-style:none; }
-  .skill-group li {
-    color: var(--muted); font-size: 0.95rem; padding: 8px 0; border-bottom: 1px solid var(--line);
-  }
-  .skill-group li:last-child { border-bottom: none; }
-  .skill-group li b { color: var(--text); font-weight: 500; }
+.links { list-style: none; margin: 0; padding: 0; }
+.link-row { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.link-row:first-child { border-top: 1px solid var(--line); }
+.link-main { flex: 1; min-width: 0; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; text-decoration: none; }
+.link-main span:first-child { font-weight: 600; }
+.link-main span:last-child { color: var(--muted); overflow-wrap: anywhere; text-align: right; transition: color .2s; }
+.link-main:hover span:last-child { color: var(--accent); }
 
-  /* ---------- EXPERIENCE (timeline, genuinely sequential) ---------- */
-  .timeline { position: relative; padding-left: 28px; border-left: 1px solid var(--line); }
-  .tl-item { position: relative; padding-bottom: 44px; }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-item::before {
-    content:''; position:absolute; left:-33px; top: 4px; width: 9px; height: 9px;
-    border-radius: 50%; background: var(--accent);
-  }
-  .tl-when { color: var(--muted); font-size: 0.85rem; font-family:'JetBrains Mono', monospace; margin-bottom: 6px; }
-  .tl-item h3 { font-size: 1.1rem; margin-bottom: 4px; }
-  .tl-item .org { color: var(--accent); font-size: 0.9rem; margin-bottom: 10px; }
-  .tl-item p { color: var(--muted); font-size: 0.93rem; max-width: 60ch; }
+footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
-  /* ---------- CONTACT ---------- */
-  .contact-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items:end; }
-  @media (max-width: 720px){ .contact-inner { grid-template-columns: 1fr; } }
-  .contact h2 { font-size: 2rem; max-width: 16ch; margin-bottom: 16px; }
-  .contact p { color: var(--muted); max-width: 44ch; margin-bottom: 28px; }
-  .contact-list { display:flex; flex-direction:column; gap: 14px; }
-  .contact-list a { display:flex; justify-content:space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; font-size: 0.95rem; }
-  .contact-list a span:last-child { color: var(--muted); }
-  .contact-list a:hover span:first-child { color: var(--accent); }
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 80; transform: translate(-50%, 20px);
+  background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px;
+  font-size: .9rem; font-weight: 500; opacity: 0; pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0; }
-  footer .wrap { display:flex; justify-content:space-between; color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; gap: 10px; }
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero-grid, .contact-grid { grid-template-columns: 1fr; }
+  .work { grid-template-columns: 1fr; }
+  .work-list { position: static; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .skill-list li { flex-direction: column; gap: 2px; }
+  .skill-list span { text-align: left; }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
 </style>
 </head>
-<body>
 
-<nav>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<nav class="nav" aria-label="Primary">
   <div class="wrap">
-    <div class="nav-mark">AS<span>.</span>dev</div>
-    <div class="nav-links">
+    <a class="brand" href="#top" aria-label="Alex Sharma, back to top">
+      <span class="brand-mark" aria-hidden="true">AS</span>
+      <span>Soniya Pantha</span>
+    </a>
+    <div class="nav-links" id="nav-links">
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#writing">Writing</a>
+      <a href="#writing" id="nav-writing" hidden>Writing</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#" class="resume-btn">Resume ↓</a>
+    <div class="nav-actions">
+      <a class="btn btn-line btn-sm resume-link" id="resume-link" href="resume.pdf" download hidden>Resume</a>
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow-role mono">Mid-Level .NET Developer</div>
-      <h1>Soniya Pantha builds fast, reliable products end to end.</h1>
-      <p class="lede">Two years building production APIs and web apps with ASP.NET Core, C#, and SQL Server — with a full-stack academic background spanning PHP, Python, and React.</p>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">See my work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-    <div class="terminal">
-      <div class="terminal-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <div class="terminal-body">
-        <div><span class="c">// developer.cs</span></div>
-        <div>&nbsp;</div>
-        <div><span class="k">public class</span> Developer</div>
-        <div>{</div>
-        <div>&nbsp;&nbsp;<span class="k">string</span> Name = <span class="s">"Soniya Pantha"</span>;</div>
-        <div>&nbsp;&nbsp;<span class="k">int</span> YearsExp = <span class="s">2 +</span>;</div>
-        <div>&nbsp;&nbsp;<span class="k">string[]</span> Stack = {</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"C#"</span>, <span class="s">"ASP.NET Core"</span>,</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s"><span class="s">"SQL Server"</span></div>
-        <div>&nbsp;&nbsp;};</div>
-        <div>}<span class="cursor"></span></div>
-      </div>
-    </div>
-  </div>
-</header>
+<main id="main">
 
-<section id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Selected work</h2>
-      <div class="count mono">03 projects</div>
-    </div>
-
-    <div class="project">
-      <div class="idx">01</div>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
       <div>
-        <h3>Online Thrift Book Store</h3>
-        <p>A full-stack e-commerce platform for buying and selling second-hand books, with user registration, product listings, cart, and order management. Designed the MySQL schema for users, listings, and transactions, and implemented server-side validation to keep bad data out.</p>
-        <div class="stack"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div>
+        <h1>Soniya Pantha builds .NET backends and the web apps in front of them.</h1>
+        <p class="lede">Mid-level .NET developer with two years of production experience in ASP.NET Core, C#, and SQL Server, plus full-stack project work in PHP, Python, and React.</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">View projects</a>
+          <a href="#contact" class="btn btn-line">Contact me</a>
+        </div>
+        <p class="availability"><i aria-hidden="true"></i>Open to fullstack roles and freelance work</p>
       </div>
-      <div class="project-links">
-        <a href="#">Live demo →</a>
-        <a href="#">GitHub →</a>
+
+      <div class="api" role="group" aria-label="Interactive API explorer about Alex Sharma">
+        <div class="api-head">
+          <div class="api-top">
+            <div class="api-title">Soniya.Portfolio.Api <span class="api-ver">v1</span></div>
+            <div class="api-server">https://localhost:7001</div>
+          </div>
+          <p class="api-hint">Select an endpoint to send a request.</p>
+        </div>
+        <div id="ep-list"></div>
+        <div class="res">
+          <div class="res-meta" id="res-meta"></div>
+          <pre id="res-body" aria-live="polite"></pre>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="project">
-      <div class="idx">02</div>
+  <!-- ================= WORK ================= -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>Three projects that show how I work with data, algorithms, and full-stack delivery.</p>
+      </div>
+      <div class="work">
+        <div class="work-list" id="project-tabs" role="tablist" aria-orientation="vertical" aria-label="Projects"></div>
+        <article class="detail" id="project-panel" role="tabpanel" tabindex="0"></article>
+      </div>
+      <noscript><p class="noscript">JavaScript is turned off, so projects can't load here. See my work on GitHub instead.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>What I use every day, and what I've picked up along the way.</p>
+      </div>
+      <div id="skills-body"></div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Two years in production, plus the coursework and projects behind it.</p>
+      </div>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </section>
+
+  <!-- ================= WRITING (shown only when posts exist) ================= -->
+  <section class="section" id="writing" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Writing</h2>
+        <p>Notes on .NET, debugging, and lessons from the job.</p>
+      </div>
+      <div class="posts" id="posts"></div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
       <div>
-        <h3>Priority-Based Task Scheduler</h3>
-        <p>An application implementing priority-based CPU task scheduling logic — users add tasks with priority levels and the app visualizes execution order. Built to translate a core OS scheduling algorithm into a working, testable .NET application.</p>
-        <div class="stack"><span>C#</span><span>.NET</span><span>Windows Forms / ASP.NET</span></div>
+        <h2>Let's build something reliable together.</h2>
+        <p class="lede">Open to fullstack roles and freelance work. I usually reply within a day.</p>
+        <form class="form" id="contact-form" novalidate>
+          <label class="field">Your name
+            <input type="text" name="sender" autocomplete="name">
+          </label>
+          <label class="field">Message
+            <textarea name="message" rows="4"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Open email draft</button>
+          <p class="form-msg" id="form-msg" role="status">Opens your email app with this message ready to send.</p>
+        </form>
       </div>
-      <div class="project-links">
-        <a href="#">Live demo →</a>
-        <a href="#">GitHub →</a>
-      </div>
+      <ul class="links" id="contact-links"></ul>
     </div>
+  </section>
 
-    <div class="project">
-      <div class="idx">03</div>
-      <div>
-        <h3>Student Performance Prediction System</h3>
-        <p>A machine learning-powered web app that predicts student academic performance from historical data, served through a Flask backend. Handled data preprocessing, model integration, and the route structure connecting the ML layer to the frontend.</p>
-        <div class="stack"><span>Python</span><span>Flask</span><span>HTML/CSS</span></div>
-      </div>
-      <div class="project-links">
-        <a href="#">Live demo →</a>
-        <a href="#">GitHub →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>PRIMARY STACK</h4>
-        <ul>
-          <li><b>C# / .NET</b> — ASP.NET Core, Web API, MVC</li>
-          <li><b>Entity Framework Core</b> — code-first, migrations</li>
-          <li><b>SQL Server / MySQL</b> — schema design, queries</li>
-          <li><b>REST APIs</b> — design and integration</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <h4>ALSO WORKED WITH</h4>
-        <ul>
-          <li><b>PHP</b> — from academic full-stack project</li>
-          <li><b>Python / Flask</b> — ML-integrated web app</li>
-          <li><b>React / JavaScript</b></li>
-          <li><b>HTML / CSS</b> — responsive layouts</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <h4>TOOLING & PRACTICES</h4>
-        <ul>
-          <li><b>Git / GitHub</b> — branching, PR workflows</li>
-          <li><b>Mentoring</b> — regularly guide interns/junior devs</li>
-          <li><b>Azure</b> — App Service, basic CI/CD</li>
-          <li><b>Unit testing</b> — xUnit basics</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Experience</h2>
-    </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-when">Date — Present</div>
-        <h3>Mid-Level .NET Developer</h3>
-        <div class="org">Company Name</div>
-        <p>Building and maintaining ASP.NET Core services for [product/team], and regularly mentoring interns and junior developers on code quality, debugging, and .NET fundamentals. Add 1-2 lines on a feature you shipped or a process you improved.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-when">Date — Date</div>
-        <h3>.NET Developer</h3>
-        <div class="org">Company Name</div>
-        <p>Add your earlier role here if different from your current one — otherwise remove this entry and keep just your current role.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-when">Year</div>
-        <h3>BCA — Bachelor of Computer Applications</h3>
-        <div class="org">University Name</div>
-        <p>Coursework spanning web development, databases, and OS fundamentals; built full-stack projects in PHP, .NET, and Python/Flask across final semesters.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="writing">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Writing</h2>
-    </div>
-    <div class="timeline" style="border-left: 1px solid var(--line);">
-      <div class="tl-item">
-        <div class="tl-when">Coming soon</div>
-        <h3>Notes on .NET, debugging, and things I've learned on the job</h3>
-        <p>Working on my first posts — swap this block for real links once they're published on Medium, Dev.to, or Hashnode.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap contact-inner">
-    <div class="contact">
-      <h2>Let's build something reliable together.</h2>
-      <p>Open to fullstack roles and freelance work. Usually replies within a day.</p>
-    </div>
-    <div class="contact-list">
-      <a href="mailto:soniya.pantha@email.com"><span>Email</span><span>soniyapantha@gmail.com</span></a>
-      <a href="#"><span>GitHub</span><span>https://github.com/soniyapantha</span></a>
-      <a href="#"><span>LinkedIn</span><span>linkedin.com/in/soniyapantha</span></a>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
-    <!-- <div>Soniya Pantha — built with ASP.NET Core in spirit, HTML/CSS in practice.</div> -->
-    <div>© 2026</div>
+    <p>© <span id="year">2026</span> Soniya Pantha. Built with plain HTML, CSS, and JavaScript. No framework, no build step.</p>
+    <a href="#top">Back to top</a>
   </div>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   1. YOUR CONTENT  —  edit this block, nothing else.
+   Everything on the page below the hero text is built from it.
+   ========================================================= */
+const DATA = {
+  name: 'Alex Sharma',
+  role: 'Mid-Level .NET Developer',
+  years: 2,
+  headlineStack: ['C#', 'ASP.NET Core', 'SQL Server', 'React'],
+  mentoring: 'interns and junior developers',
+
+  email: 'alex.sharma@email.com',                    // EDIT
+  github: 'https://github.com/alexsharma',           // EDIT
+  linkedin: 'https://www.linkedin.com/in/alexsharma',// EDIT
+  resume: 'resume.pdf',    // put resume.pdf next to index.html, or set to '' to hide the button
+
+  projects: [
+    {
+      title: 'Online Thrift Book Store',
+      kind: 'Full-stack e-commerce',
+      description: 'A full-stack platform for buying and selling second-hand books, with user registration, product listings, a cart, and order management.',
+      built: [
+        'Designed the MySQL schema for users, listings, and transactions',
+        'Added server-side validation to keep bad data out of the database',
+        'Built registration, listings, cart, and order management end to end'
+      ],
+      stack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
+      demo: '',   // EDIT: live demo URL (button is hidden while empty)
+      repo: '',   // EDIT: GitHub repo URL (button is hidden while empty)
+      snippet: {  // Swap for real code from your repo
+        file: 'schema.sql', lang: 'sql',
+        code: `CREATE TABLE listings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  seller_id INT NOT NULL,
+  title VARCHAR(150) NOT NULL,
+  price DECIMAL(8,2) NOT NULL,
+  status ENUM('available', 'sold') DEFAULT 'available',
+  FOREIGN KEY (seller_id) REFERENCES users(id)
+);`
+      }
+    },
+    {
+      title: 'Priority-Based Task Scheduler',
+      kind: 'Algorithm visualizer',
+      description: 'An application that implements priority-based CPU task scheduling. You add tasks with priority levels and it shows the order they run in.',
+      built: [
+        'Implemented the priority scheduling logic in C#',
+        'Visualizes the execution order as tasks are added',
+        'Turned a core operating-systems algorithm into a working, testable .NET application'
+      ],
+      stack: ['C#', '.NET'],   // EDIT: add your UI layer, e.g. 'Windows Forms' or 'ASP.NET Core'
+      demo: '',
+      repo: '',
+      snippet: {
+        file: 'Scheduler.cs', lang: 'cs',
+        code: `// Highest priority first; earlier arrival breaks ties
+var queue = new PriorityQueue<ScheduledTask, (int, DateTime)>();
+
+foreach (var task in tasks)
+    queue.Enqueue(task, (-task.Priority, task.ArrivedAt));
+
+while (queue.TryDequeue(out var next, out _))
+    timeline.Add(next);`
+      }
+    },
+    {
+      title: 'Student Performance Prediction System',
+      kind: 'Machine learning web app',
+      description: 'A web app that predicts a student\u2019s academic performance from historical data, served through a Flask backend.',
+      built: [
+        'Cleaned and prepared the historical data for modeling',
+        'Integrated the scikit-learn model into the application',
+        'Structured the Flask routes that connect the ML layer to the frontend'
+      ],
+      stack: ['Python', 'Flask', 'scikit-learn', 'HTML/CSS'],
+      demo: '',
+      repo: '',
+      snippet: {
+        file: 'app.py', lang: 'py',
+        code: `@app.route("/predict", methods=["POST"])
+def predict():
+    features = preprocess(request.form)
+    score = model.predict([features])[0]
+    return render_template("result.html", score=round(score, 1))`
+      }
+    }
+  ],
+
+  // "short" is what the hero API shows when the full name is too long for a JSON line
+  skills: [
+    { group: 'Primary stack', key: 'primary', items: [
+      { name: 'C# / .NET', note: 'ASP.NET Core, Web API, MVC' },
+      { name: 'EF Core', note: 'Entity Framework Core: code-first, migrations' },
+      { name: 'SQL Server / MySQL', short: 'SQL Server', note: 'Schema design and queries' },
+      { name: 'REST APIs', note: 'Design and integration' }
+    ]},
+    { group: 'Also worked with', key: 'also', items: [
+      { name: 'PHP', note: 'Academic full-stack project' },
+      { name: 'Python / Flask', note: 'ML-integrated web app' },
+      { name: 'React / JavaScript', short: 'React', note: '' },
+      { name: 'HTML / CSS', note: 'Responsive layouts' }
+    ]},
+    { group: 'Tooling and practices', key: 'tooling', items: [
+      { name: 'Git / GitHub', short: 'Git', note: 'Branching, PR workflows' },
+      { name: 'Mentoring', note: 'Interns and junior developers' },
+      { name: 'Azure', note: 'App Service, basic CI/CD' },
+      { name: 'Unit testing', note: 'xUnit basics' }
+    ]}
+  ],
+
+  experience: [
+    {
+      period: 'Month YYYY \u2014 Present',   // EDIT
+      role: 'Mid-Level .NET Developer',
+      org: 'Company Name',                    // EDIT
+      points: [
+        'Build and maintain ASP.NET Core services and REST APIs used in production.',
+        'Mentor interns and junior developers on code quality, debugging, and .NET fundamentals.'
+        // EDIT: add one line with a measurable result, e.g. "Cut report generation time from 40s to 6s."
+      ]
+    }
+  ],
+  education: {
+    period: 'YYYY',                                        // EDIT
+    role: 'Bachelor of Computer Applications (BCA)',
+    org: 'University Name',                                // EDIT
+    points: [
+      'Coursework in web development, databases, and operating-system fundamentals.',
+      'Built full-stack projects in PHP, .NET, and Python/Flask during the final semesters.'
+    ]
+  },
+
+  // Add posts and the "Writing" section appears automatically.
+  // { title: 'Post title', url: 'https://…', date: 'Sep 2026', summary: 'One sentence.' }
+  posts: []
+};
+
+/* =========================================================
+   2. BEHAVIOUR  —  you shouldn't need to touch anything below.
+   ========================================================= */
+(() => {
+  'use strict';
+  const D = DATA;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const escText = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const esc = s => escText(s).replace(/"/g, '&quot;');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pretty = url => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+
+  /* ---------- Theme ---------- */
+  const root = document.documentElement;
+  const themeBtn = $('#theme-btn');
+  const syncThemeLabel = () => themeBtn.setAttribute('aria-label',
+    root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  themeBtn.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    syncThemeLabel();
+  });
+  syncThemeLabel();
+
+  /* ---------- Mobile menu ---------- */
+  const nav = $('.nav'), menuBtn = $('#menu-btn');
+  const setMenu = open => { nav.dataset.open = open; menuBtn.setAttribute('aria-expanded', open); };
+  menuBtn.addEventListener('click', () => setMenu(nav.dataset.open !== 'true'));
+  $$('.nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---------- Resume + contact links ---------- */
+  if (D.resume) { const r = $('#resume-link'); r.href = D.resume; r.hidden = false; }
+
+  $('#contact-links').innerHTML = `
+    <li class="link-row">
+      <a class="link-main" href="mailto:${esc(D.email)}"><span>Email</span><span>${esc(D.email)}</span></a>
+      <button class="btn btn-line btn-sm" type="button" id="copy-email">Copy</button>
+    </li>
+    <li class="link-row"><a class="link-main" href="${esc(D.github)}" target="_blank" rel="noopener"><span>GitHub</span><span>${esc(pretty(D.github))}</span></a></li>
+    <li class="link-row"><a class="link-main" href="${esc(D.linkedin)}" target="_blank" rel="noopener"><span>LinkedIn</span><span>${esc(pretty(D.linkedin))}</span></a></li>`;
+
+  /* ---------- Toast + clipboard ---------- */
+  const toast = $('#toast');
+  let toastTimer;
+  const showToast = msg => {
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  };
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch (e) {
+      const t = document.createElement('textarea');
+      t.value = text; t.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(t); t.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {}
+      t.remove(); return ok;
+    }
+  }
+  $('#copy-email').addEventListener('click', async () => {
+    showToast(await copyText(D.email) ? 'Email address copied' : 'Copy failed. Select the address and copy it manually.');
+  });
+
+  /* ---------- Contact form (opens the visitor's email app) ---------- */
+  const form = $('#contact-form'), formMsg = $('#form-msg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const nameEl = form.elements.namedItem('sender'), msgEl = form.elements.namedItem('message');
+    const name = nameEl.value.trim(), msg = msgEl.value.trim();
+    if (!name || !msg) {
+      formMsg.dataset.state = 'error';
+      formMsg.textContent = !name ? 'Enter your name so I know who to reply to.' : 'Write a short message before opening the draft.';
+      (!name ? nameEl : msgEl).focus();
+      return;
+    }
+    delete formMsg.dataset.state;
+    formMsg.textContent = "Your email app should open with the draft. If it doesn't, copy my address above and write to me directly.";
+    const subject = `Portfolio enquiry from ${name}`;
+    location.href = `mailto:${D.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg + '\n\n' + name)}`;
+  });
+
+  /* ---------- Tiny syntax highlighter ---------- */
+  const RULES = {
+    cs:  /(\/\/[^\n]*)|("(?:[^"\\\n]|\\.)*")|\b(var|new|foreach|in|while|out|return|public|class|int|string|bool|using|static)\b|\b(\d+(?:\.\d+)?)\b/g,
+    sql: /(--[^\n]*)|('(?:[^'\\\n]|\\.)*')|\b(CREATE|TABLE|INT|PRIMARY|KEY|AUTO_INCREMENT|NOT|NULL|VARCHAR|DECIMAL|ENUM|DEFAULT|FOREIGN|REFERENCES)\b|\b(\d+(?:\.\d+)?)\b/g,
+    py:  /(#[^\n]*)|("(?:[^"\\\n]|\\.)*")|\b(def|return|import|from|if|else|for|in|class|None|True|False)\b|\b(\d+(?:\.\d+)?)\b/g
+  };
+  const highlight = (code, lang) => escText(code).replace(RULES[lang], (m, c, s, k) =>
+    `<span class="${c ? 'c-c' : s ? 'c-s' : k ? 'c-k' : 'c-n'}">${m}</span>`);
+
+  /* ---------- Hero: interactive API explorer ---------- */
+  const inl = v => Array.isArray(v) ? '[' + v.map(inl).join(', ') + ']'
+    : v && typeof v === 'object' ? '{ ' + Object.entries(v).map(([k, x]) => JSON.stringify(k) + ': ' + inl(x)).join(', ') + ' }'
+    : JSON.stringify(v);
+  function fmt(v, depth = 0, prefix = 0, force = false) {
+    const flat = inl(v);
+    if (!force && (typeof v !== 'object' || v === null || flat.length + depth * 2 + prefix <= 66)) return flat;
+    const pad = '  '.repeat(depth + 1), end = '  '.repeat(depth);
+    if (Array.isArray(v)) return '[\n' + v.map(x => pad + fmt(x, depth + 1)).join(',\n') + '\n' + end + ']';
+    return '{\n' + Object.entries(v).map(([k, x]) => {
+      const key = JSON.stringify(k) + ': ';
+      return pad + key + fmt(x, depth + 1, key.length);
+    }).join(',\n') + '\n' + end + '}';
+  }
+  const hlJson = line => escText(line).replace(
+    /("(?:[^"\\]|\\.)*")(\s*:)?|\b(true|false|null)\b|(-?\b\d+(?:\.\d+)?\b)/g,
+    (m, s, colon, lit, num) => s ? (colon ? `<span class="j-k">${s}</span>${colon}` : `<span class="j-s">${s}</span>`)
+      : lit ? `<span class="j-l">${lit}</span>` : `<span class="j-n">${num}</span>`);
+
+  const ENDPOINTS = [
+    { path: '/api/developer', desc: 'Who I am', build: () => ({
+        name: D.name, role: D.role, yearsExperience: D.years, stack: D.headlineStack, mentors: D.mentoring }) },
+    { path: '/api/projects', desc: 'What I built', build: () => ({
+        total: D.projects.length, items: D.projects.map(p => p.title) }) },
+    { path: '/api/skills', desc: 'What I use', build: () =>
+        Object.fromEntries(D.skills.map(g => [g.key, g.items.map(i => i.short || i.name)])) },
+    { path: '/api/availability', desc: 'Work with me', build: () => ({
+        open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', email: D.email }) }
+  ];
+
+  const epList = $('#ep-list'), resBody = $('#res-body'), resMeta = $('#res-meta');
+  epList.innerHTML = ENDPOINTS.map((ep, i) => `
+    <button class="ep" type="button" data-i="${i}" aria-pressed="false">
+      <span class="method">GET</span><span>${esc(ep.path)}</span><span class="ep-desc">${esc(ep.desc)}</span>
+    </button>`).join('');
+  const epBtns = $$('.ep', epList);
+
+  let runId = 0;
+  function send(i) {
+    const id = ++runId;
+    const text = fmt(ENDPOINTS[i].build(), 0, 0, true);
+    const lines = text.split('\n');
+    epBtns.forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+    resMeta.innerHTML = `<span class="ok">200 OK</span><span>application/json</span><span>${new Blob([text]).size} bytes</span>`;
+    if (reduceMotion) { resBody.innerHTML = lines.map(hlJson).join('\n'); return; }
+    resBody.setAttribute('aria-busy', 'true');
+    let n = 0;
+    (function tick() {
+      if (id !== runId) return;
+      n++;
+      const done = n >= lines.length;
+      resBody.innerHTML = lines.slice(0, n).map(hlJson).join('\n') + (done ? '' : '<span class="caret"></span>');
+      if (done) resBody.setAttribute('aria-busy', 'false');
+      else setTimeout(tick, 60);
+    })();
+  }
+  epList.addEventListener('click', e => { const b = e.target.closest('.ep'); if (b) send(+b.dataset.i); });
+  setTimeout(() => send(0), 350);
+
+  /* ---------- Work: project list + detail ---------- */
+  const tabsEl = $('#project-tabs'), panelEl = $('#project-panel');
+  const N = D.projects.length;
+  tabsEl.innerHTML = D.projects.map((p, i) => `
+    <button class="tab" type="button" role="tab" id="tab-${i}" data-i="${i}" aria-controls="project-panel"
+      aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">
+      <strong>${esc(p.title)}</strong><span>${esc(p.kind)}</span>
+    </button>`).join('');
+
+  function showProject(i, focus) {
+    const p = D.projects[i];
+    $$('.tab', tabsEl).forEach((t, j) => { t.setAttribute('aria-selected', String(j === i)); t.tabIndex = j === i ? 0 : -1; });
+    panelEl.setAttribute('aria-labelledby', 'tab-' + i);
+    const links = [
+      p.demo && `<a class="btn btn-primary btn-sm" href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo</a>`,
+      p.repo && `<a class="btn btn-line btn-sm" href="${esc(p.repo)}" target="_blank" rel="noopener">View on GitHub</a>`
+    ].filter(Boolean).join('');
+    panelEl.innerHTML = `
+      <h3>${esc(p.title)}</h3>
+      <p class="detail-desc">${esc(p.description)}</p>
+      <h4>What I built</h4>
+      <ul class="built">${p.built.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+      <div class="chips">${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div>
+      ${links ? `<div class="detail-links">${links}</div>` : ''}
+      <figure class="code">
+        <figcaption class="code-head"><span>${esc(p.snippet.file)}</span><span>Illustrative excerpt</span></figcaption>
+        <pre><code>${highlight(p.snippet.code, p.snippet.lang)}</code></pre>
+      </figure>`;
+    panelEl.classList.remove('swap'); void panelEl.offsetWidth; panelEl.classList.add('swap');
+    if (focus) $('#tab-' + i).focus();
+  }
+  tabsEl.addEventListener('click', e => { const t = e.target.closest('.tab'); if (t) showProject(+t.dataset.i); });
+  tabsEl.addEventListener('keydown', e => {
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    const cur = +document.activeElement.dataset.i;
+    let next;
+    if (e.key in step) next = (cur + step[e.key] + N) % N;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = N - 1;
+    else return;
+    e.preventDefault(); showProject(next, true);
+  });
+  showProject(0);
+
+  /* ---------- Skills ---------- */
+  const [primary, ...others] = D.skills;
+  $('#skills-body').innerHTML = `
+    <h3 class="grp">${esc(primary.group)}</h3>
+    <div class="tiles">${primary.items.map(i => `<div class="tile"><h4>${esc(i.name)}</h4><p>${esc(i.note)}</p></div>`).join('')}</div>
+    <div class="skill-cols">${others.map(g => `
+      <div>
+        <h3 class="grp">${esc(g.group)}</h3>
+        <ul class="skill-list">${g.items.map(i => `<li><b>${esc(i.name)}</b>${i.note ? `<span>${esc(i.note)}</span>` : ''}</li>`).join('')}</ul>
+      </div>`).join('')}
+    </div>`;
+
+  /* ---------- Experience + education ---------- */
+  const tlItem = (x, cls = '') => `
+    <li class="tl ${cls}">
+      <p class="tl-when">${esc(x.period)}</p>
+      <h3>${esc(x.role)}</h3>
+      <p class="tl-org">${esc(x.org)}</p>
+      <ul>${x.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
+    </li>`;
+  $('#timeline').innerHTML = D.experience.map(x => tlItem(x)).join('') + tlItem(D.education, 'edu');
+
+  /* ---------- Writing (optional) ---------- */
+  if (D.posts.length) {
+    $('#writing').hidden = false; $('#nav-writing').hidden = false;
+    $('#posts').innerHTML = D.posts.map(p => `
+      <a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">
+        <h3>${esc(p.title)}</h3>
+        ${p.summary ? `<p>${esc(p.summary)}</p>` : ''}
+        ${p.date ? `<small>${esc(p.date)}</small>` : ''}
+      </a>`).join('');
+  }
+
+  /* ---------- Scroll: progress bar + active nav link ---------- */
+  const bar = $('.progress i');
+  const onScroll = () => {
+    const h = document.documentElement, max = h.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, h.scrollTop / max) : 0})`;
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  const navLinks = $$('.nav-links a');
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      navLinks.forEach(a => a.removeAttribute('aria-current'));
+      const a = navLinks.find(l => l.getAttribute('href') === '#' + en.target.id);
+      if (a) a.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section[id]').forEach(s => spy.observe(s));
+
+  $('#year').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
