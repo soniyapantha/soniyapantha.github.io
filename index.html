@@ -123,6 +123,8 @@ figure { margin: 0; }
 .btn-line { border-color: var(--line); color: var(--ink); background: transparent; }
 .btn-line:hover { border-color: var(--accent); color: var(--accent); }
 .btn-sm { padding: 9px 16px; font-size: .88rem; }
+.btn-wa { background: #25D366; color: #fff; border-color: #25D366; }
+.btn-wa:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
 .icon-btn {
   width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer;
@@ -168,7 +170,6 @@ figure { margin: 0; }
   }
   .nav-links a { padding: 12px; font-size: 1.05rem; }
 }
-@media (max-width: 420px) { .resume-link { display: none; } }
 
 .hero { padding: clamp(48px, 8vw, 96px) 0 clamp(56px, 8vw, 96px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
@@ -342,6 +343,20 @@ figure { margin: 0; }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 16px; text-wrap: balance; }
 .contact .lede { margin-bottom: 0; }
+
+/* ✏️ CHANGED: CV request card styles */
+.cv-card {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+  margin-top: 24px; padding: 20px;
+  border: 1.5px dashed var(--line); border-radius: 14px;
+  background: var(--accent-soft);
+  max-width: 520px;
+}
+.cv-card svg { flex: 0 0 auto; color: var(--accent); }
+.cv-card-body { flex: 1 1 220px; min-width: 0; }
+.cv-card-body b { display: block; font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.05rem; margin-bottom: 4px; }
+.cv-card-body p { color: var(--muted); font-size: .92rem; }
+
 .form { display: grid; gap: 14px; margin-top: 32px; max-width: 520px; }
 .field { display: grid; gap: 6px; font-weight: 600; font-size: .9rem; }
 .field input, .field textarea {
@@ -355,6 +370,17 @@ figure { margin: 0; }
 .form-msg { min-height: 1.5em; font-size: .92rem; color: var(--muted); }
 .form-msg[data-state="error"] { color: #C0392B; font-weight: 600; }
 :root[data-theme="dark"] .form-msg[data-state="error"] { color: #FF8A80; }
+
+/* ✏️ CHANGED: CV request toggle chips */
+.form-intent { display: flex; flex-wrap: wrap; gap: 8px; }
+.intent-chip {
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--muted);
+  border-radius: 999px; padding: 8px 14px; font: 600 .88rem 'Instrument Sans', sans-serif;
+  cursor: pointer; transition: all .2s;
+}
+.intent-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.intent-chip:hover { border-color: var(--accent); color: var(--accent); }
+.intent-chip[aria-pressed="true"]:hover { color: var(--on-accent); }
 
 .links { list-style: none; margin: 0; padding: 0; }
 .link-row { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
@@ -442,7 +468,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
     <div class="nav-actions">
       <button class="btn btn-line btn-sm pal-btn" id="pal-btn" type="button" aria-label="Open command menu">Jump to <kbd id="pal-kbd">Ctrl K</kbd></button>
-      <a class="btn btn-line btn-sm resume-link" id="resume-link" href="resume.pdf" download hidden>Resume</a>
+      <!-- ✏️ CHANGED: removed the Resume button entirely -->
       <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
         <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -463,7 +489,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p class="lede">Mid-level .NET developer with two years of production experience in ASP.NET Core, C#, and SQL Server, plus full-stack project work in PHP, Python, and React.</p>
         <div class="hero-cta">
           <a href="#work" class="btn btn-primary">View projects</a>
-          <a href="#contact" class="btn btn-line">Contact me</a>
+          <a href="#contact" class="btn btn-wa" id="hero-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp me
+          </a>
         </div>
         <p class="availability"><i aria-hidden="true"></i>Open to fullstack roles and freelance work</p>
       </div>
@@ -552,12 +581,34 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div>
         <h2>Let's build something reliable together.</h2>
         <p class="lede">Open to fullstack roles and freelance work. Chat me on WhatsApp — I usually reply within a day.</p>
+
+        <!-- ✏️ CHANGED: CV request card -->
+        <div class="cv-card">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="13" y2="17"/>
+          </svg>
+          <div class="cv-card-body">
+            <b>Need my CV?</b>
+            <p>I share my full CV privately. Tap the button below and WhatsApp will open with a ready-to-send request.</p>
+          </div>
+          <a href="#" class="btn btn-wa btn-sm" id="cv-wa">Request CV</a>
+        </div>
+
         <form class="form" id="contact-form" novalidate>
+          <!-- ✏️ CHANGED: intent selector -->
+          <div class="form-intent" role="group" aria-label="What would you like to talk about?">
+            <button type="button" class="intent-chip" data-intent="general" aria-pressed="true">General message</button>
+            <button type="button" class="intent-chip" data-intent="cv" aria-pressed="false">Request CV</button>
+          </div>
+
           <label class="field">Your name
             <input type="text" name="sender" autocomplete="name">
           </label>
           <label class="field">Message
-            <textarea name="message" rows="4"></textarea>
+            <textarea name="message" rows="4" id="msg-textarea"></textarea>
           </label>
           <button class="btn btn-primary" type="submit">Send on WhatsApp</button>
           <p class="form-msg" id="form-msg" role="status">Opens WhatsApp with your message ready to send.</p>
@@ -584,7 +635,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <p class="pal-foot">Use the arrow keys to move, Enter to select, Esc to close.</p>
 </dialog>
 
-
 <a href="#" id="wa-float" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -600,13 +650,14 @@ const DATA = {
   headlineStack: ['C#', 'ASP.NET Core', 'SQL Server', 'React'],
   mentoring: 'interns and junior developers',
 
-
-  whatsapp: '9812743006',
+  // ✏️ CHANGED: full international format (Nepal +977, no +, no leading zero)
+  whatsapp: '9779812743006',
 
   email: 'sharmaunisha666@gmail.com',
   github: 'https://github.com/soniyapantha',
   linkedin: 'https://www.linkedin.com/in/soniyapantha',
-  resume: '',
+
+  // ✏️ CHANGED: removed resume field entirely (CV shared via WhatsApp only)
 
   projects: [
     {
@@ -763,15 +814,51 @@ def predict():
   $$('.nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-  /* ---------- Resume + contact links ---------- */
-  if (D.resume) { const r = $('#resume-link'); r.href = D.resume; r.hidden = false; }
+  /* ---------- ✏️ CHANGED: WhatsApp links and CV request ---------- */
+  const waBase = `https://wa.me/${D.whatsapp}`;
 
-  const waMessage = encodeURIComponent("Hi Soniya! I found your portfolio and wanted to reach out.");
-  const waLink = `https://wa.me/${D.whatsapp}?text=${waMessage}`;
+  // Generic hello message (used by floating button + hero button)
+  const waGreeting = encodeURIComponent(
+    "Hi Soniya! I found your portfolio and wanted to reach out."
+  );
+  const waLink = `${waBase}?text=${waGreeting}`;
 
+  // Formal CV request message — used by "Request CV" button and "Request CV" chip
+  const cvRequestText =
+`Dear Soniya,
+
+I came across your portfolio and I would like to request a copy of your CV.
+
+Purpose: [please mention — job opportunity / freelance work / general inquiry]
+Company / Organization: [your company name, if applicable]
+Position / Role: [if applicable]
+
+Thank you for your time. I look forward to hearing from you.
+
+Best regards,
+[Your name]`;
+
+  const cvRequestLink = `${waBase}?text=${encodeURIComponent(cvRequestText)}`;
+
+  // Floating WhatsApp button
+  const waFloat = $('#wa-float');
+  if (waFloat) waFloat.href = waLink;
+
+  // Hero WhatsApp button
+  const heroWa = $('#hero-wa');
+  if (heroWa) { heroWa.href = waLink; heroWa.target = '_blank'; heroWa.rel = 'noopener'; }
+
+  // "Request CV" card button
+  const cvWa = $('#cv-wa');
+  if (cvWa) { cvWa.href = cvRequestLink; cvWa.target = '_blank'; cvWa.rel = 'noopener'; }
+
+  /* ---------- Contact links ---------- */
   $('#contact-links').innerHTML = `
     <li class="link-row">
       <a class="link-main" href="${waLink}" target="_blank" rel="noopener"><span>WhatsApp</span><span>Chat with me</span></a>
+    </li>
+    <li class="link-row">
+      <a class="link-main" href="${cvRequestLink}" target="_blank" rel="noopener"><span>Request CV</span><span>Via WhatsApp</span></a>
     </li>
     <li class="link-row">
       <a class="link-main" href="mailto:${esc(D.email)}"><span>Email</span><span>${esc(D.email)}</span></a>
@@ -779,12 +866,6 @@ def predict():
     </li>
     <li class="link-row"><a class="link-main" href="${esc(D.github)}" target="_blank" rel="noopener"><span>GitHub</span><span>${esc(pretty(D.github))}</span></a></li>
     <li class="link-row"><a class="link-main" href="${esc(D.linkedin)}" target="_blank" rel="noopener"><span>LinkedIn</span><span>${esc(pretty(D.linkedin))}</span></a></li>`;
-
-  /* ---------- Floating WhatsApp button ---------- */
-  (function () {
-    const btn = document.getElementById('wa-float');
-    if (btn && D.whatsapp) btn.href = waLink;
-  })();
 
   /* ---------- Toast + clipboard ---------- */
   const toast = $('#toast');
@@ -808,12 +889,49 @@ def predict():
   }
   $('#copy-email').addEventListener('click', copyEmail);
 
-  /* ---------- Contact form → WhatsApp ---------- */
+  /* ---------- ✏️ CHANGED: Contact form with intent toggle ---------- */
   const form = $('#contact-form'), formMsg = $('#form-msg');
+  const msgEl = form.elements.namedItem('message');
+  const intentChips = $$('.intent-chip', form);
+  let currentIntent = 'general';
+
+  // Preset messages
+  const PRESETS = {
+    general: {
+      placeholder: 'Tell me about the role, project, or idea you have in mind.',
+      value: ''
+    },
+    cv: {
+      placeholder: 'Add any context here — e.g. the role, company, or reason you need my CV.',
+      value:
+`I would like to request a copy of your CV.
+
+Purpose: [job opportunity / freelance work / general inquiry]
+Company: [your company name]
+Position: [if applicable]`
+    }
+  };
+
+  function applyIntent(intent) {
+    currentIntent = intent;
+    intentChips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.intent === intent)));
+    const preset = PRESETS[intent];
+    msgEl.placeholder = preset.placeholder;
+    // Only overwrite if the user hasn't typed something custom
+    if (!msgEl.value.trim() || Object.values(PRESETS).some(p => p.value && p.value === msgEl.value.trim())) {
+      msgEl.value = preset.value;
+    }
+    formMsg.textContent = intent === 'cv'
+      ? 'Opens WhatsApp with a CV request ready to send.'
+      : 'Opens WhatsApp with your message ready to send.';
+    delete formMsg.dataset.state;
+  }
+  intentChips.forEach(c => c.addEventListener('click', () => applyIntent(c.dataset.intent)));
+  applyIntent('general');
+
   form.addEventListener('submit', e => {
     e.preventDefault();
     const nameEl = form.elements.namedItem('sender');
-    const msgEl = form.elements.namedItem('message');
     const name = nameEl.value.trim();
     const msg = msgEl.value.trim();
 
@@ -829,8 +947,11 @@ def predict():
     delete formMsg.dataset.state;
     formMsg.textContent = 'Opening WhatsApp…';
 
-    const text = `Hi Soniya! I'm ${name}.\n\n${msg}`;
-    const url = `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(text)}`;
+    const header = currentIntent === 'cv'
+      ? `Hi Soniya! I'm ${name}, and I'd like to request your CV.`
+      : `Hi Soniya! I'm ${name}.`;
+    const text = `${header}\n\n${msg}`;
+    const url = `${waBase}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener');
   });
 
@@ -949,8 +1070,12 @@ def predict():
         return { user: v.user.login, publicRepos: v.user.repos, followers: v.user.followers,
           topLanguages: langStats(v.repos).slice(0, 3).map(l => l.name) };
       } },
+    // ✏️ CHANGED: availability endpoint now mentions CV via WhatsApp
     { path: '/api/availability', desc: 'Work with me', build: async () => ({
-        open: true, lookingFor: ['Fullstack roles', 'Freelance work'], replies: 'usually within a day', whatsapp: 'available on request' }) }
+        open: true,
+        lookingFor: ['Fullstack roles', 'Freelance work'],
+        cv: 'Request via WhatsApp',
+        replies: 'usually within a day' }) }
   ];
   const normPath = raw => {
     let p = raw.trim().toLowerCase().replace(/^get\s+/, '');
@@ -1166,13 +1291,15 @@ def predict():
         ...(D.posts.length ? [go('writing', 'Writing')] : []), go('contact', 'Contact')];
       D.projects.forEach((p, i) => c.push({ group: 'Projects', label: p.title, kw: p.stack.join(' ') + ' ' + p.kind, run: () => { showProject(i); jump('work'); } }));
       c.push(
+        // ✏️ CHANGED: added "Request CV via WhatsApp" action, removed "Download resume"
+        { group: 'Actions', label: 'Request my CV via WhatsApp', kw: 'cv resume request', run: () => window.open(cvRequestLink, '_blank', 'noopener') },
         { group: 'Actions', label: 'Switch between light and dark theme', kw: 'theme dark light mode', run: toggleTheme },
         { group: 'Actions', label: 'Open WhatsApp chat', kw: 'whatsapp chat message', run: () => window.open(waLink, '_blank', 'noopener') },
         { group: 'Actions', label: 'Copy email address', kw: 'mail contact', run: copyEmail },
         { group: 'Actions', label: 'Open GitHub profile', kw: 'code repositories', run: () => window.open(D.github, '_blank', 'noopener') },
-        { group: 'Actions', label: 'Open LinkedIn profile', kw: 'network', run: () => window.open(D.linkedin, '_blank', 'noopener') });
-      if (D.resume) c.push({ group: 'Actions', label: 'Download resume', kw: 'cv', run: () => { const a = document.createElement('a'); a.href = D.resume; a.download = ''; a.click(); } });
-      c.push({ group: 'Actions', label: 'Back to top', run: () => jump('top') });
+        { group: 'Actions', label: 'Open LinkedIn profile', kw: 'network', run: () => window.open(D.linkedin, '_blank', 'noopener') },
+        { group: 'Actions', label: 'Back to top', run: () => jump('top') }
+      );
       return c;
     };
     function renderPal() {
@@ -1180,7 +1307,7 @@ def predict():
       items = commands().filter(c => !q || (c.label + ' ' + c.group + ' ' + (c.kw || '')).toLowerCase().includes(q));
       idx = 0;
       if (!items.length) {
-        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "theme", or "whatsapp".</li>';
+        palList.innerHTML = '<li class="pal-empty" role="presentation">No matches. Try "projects", "cv", or "whatsapp".</li>';
         palInput.removeAttribute('aria-activedescendant'); return;
       }
       let last = '', html = '';
